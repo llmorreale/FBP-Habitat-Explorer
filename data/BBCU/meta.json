@@ -1,0 +1,436 @@
+{
+ "species": "BBCU",
+ "com_name": "Black-billed Cuckoo",
+ "sci_name": "Coccyzus erythropthalmus",
+ "cv_auc": 0.417,
+ "prevalence": 0.0032,
+ "n_present": 31,
+ "n_training_points": 9810,
+ "phi0": -5.753042221069336,
+ "units": "log-odds of presence",
+ "shap_method": "xgboost 3.4.1 pred_contribs (path-dependent TreeSHAP), margin scale",
+ "calibrated": false,
+ "shap_limit": 0.0395,
+ "shap_limit_quantile": 0.99,
+ "n_cells": 1755889,
+ "n_sample": 5000,
+ "shap_cog": {
+  "bands": [
+   "fortype_oak_hickory_100m",
+   "fortype_nonforest_100m",
+   "Maxht_mean",
+   "nlcd_forest_100m",
+   "TopRug_mean",
+   "other_covariates"
+  ],
+  "other_covariates": [
+   "FirstBelow025_mean",
+   "FirstBelow1_mean",
+   "FirstBelow2_mean",
+   "FirstBelow5_mean",
+   "IQR_mean",
+   "MOCH_mean",
+   "MSP_mean",
+   "Maxht_max",
+   "Meanht_mean",
+   "V025_mean",
+   "V10_mean",
+   "V14_mean",
+   "V18_mean",
+   "V1_mean",
+   "V22_mean",
+   "V26_mean",
+   "V30_mean",
+   "V34_mean",
+   "V38_mean",
+   "V3_mean",
+   "V42_mean",
+   "V46_mean",
+   "V4_mean",
+   "V50_mean",
+   "V5_mean",
+   "V6_mean",
+   "p25_mean",
+   "p50_mean",
+   "p5_mean",
+   "p75_mean",
+   "p95_mean",
+   "p99_mean",
+   "nlcd_developed_100m",
+   "nlcd_open_field_100m",
+   "nlcd_water_100m",
+   "nlcd_wetland_100m",
+   "fortype_maple_beech_birch_100m",
+   "fortype_southern_pine_100m",
+   "fortype_oak_pine_100m",
+   "fortype_elm_ash_cottonwood_100m",
+   "fortype_spruce_fir_100m",
+   "fortype_other_forest_100m"
+  ],
+  "int16_scale": 0.001
+ },
+ "layers": [
+  {
+   "layer": "prediction",
+   "file": "BBCU_prediction.pmtiles"
+  },
+  {
+   "layer": "shap_fortype_oak_hickory_100m",
+   "file": "BBCU_shap_fortype_oak_hickory_100m.pmtiles"
+  },
+  {
+   "layer": "shap_fortype_nonforest_100m",
+   "file": "BBCU_shap_fortype_nonforest_100m.pmtiles"
+  },
+  {
+   "layer": "shap_Maxht_mean",
+   "file": "BBCU_shap_Maxht_mean.pmtiles"
+  },
+  {
+   "layer": "shap_nlcd_forest_100m",
+   "file": "BBCU_shap_nlcd_forest_100m.pmtiles"
+  },
+  {
+   "layer": "shap_TopRug_mean",
+   "file": "BBCU_shap_TopRug_mean.pmtiles"
+  }
+ ],
+ "covariates": [
+  {
+   "name": "fortype_oak_hickory_100m",
+   "mean_abs_shap": 0.046097,
+   "mean_shap": 0.016993
+  },
+  {
+   "name": "fortype_nonforest_100m",
+   "mean_abs_shap": 0.017045,
+   "mean_shap": 0.007196
+  },
+  {
+   "name": "Maxht_mean",
+   "mean_abs_shap": 0.006215,
+   "mean_shap": -0.00238
+  },
+  {
+   "name": "nlcd_forest_100m",
+   "mean_abs_shap": 0.002519,
+   "mean_shap": 0.00096
+  },
+  {
+   "name": "TopRug_mean",
+   "mean_abs_shap": 0.002057,
+   "mean_shap": -0.000751
+  },
+  {
+   "name": "nlcd_open_field_100m",
+   "mean_abs_shap": 0.001835,
+   "mean_shap": -0.00031
+  },
+  {
+   "name": "Maxht_max",
+   "mean_abs_shap": 0.00165,
+   "mean_shap": -0.0002
+  },
+  {
+   "name": "MOCH_mean",
+   "mean_abs_shap": 0.001345,
+   "mean_shap": -0.000502
+  },
+  {
+   "name": "p95_mean",
+   "mean_abs_shap": 0.001158,
+   "mean_shap": -0.000429
+  },
+  {
+   "name": "fortype_other_forest_100m",
+   "mean_abs_shap": 0.0,
+   "mean_shap": 0.0
+  },
+  {
+   "name": "nlcd_developed_100m",
+   "mean_abs_shap": 0.0,
+   "mean_shap": 0.0
+  },
+  {
+   "name": "p25_mean",
+   "mean_abs_shap": 0.0,
+   "mean_shap": 0.0
+  },
+  {
+   "name": "p50_mean",
+   "mean_abs_shap": 0.0,
+   "mean_shap": 0.0
+  },
+  {
+   "name": "p5_mean",
+   "mean_abs_shap": 0.0,
+   "mean_shap": 0.0
+  },
+  {
+   "name": "p75_mean",
+   "mean_abs_shap": 0.0,
+   "mean_shap": 0.0
+  },
+  {
+   "name": "p99_mean",
+   "mean_abs_shap": 0.0,
+   "mean_shap": 0.0
+  },
+  {
+   "name": "nlcd_wetland_100m",
+   "mean_abs_shap": 0.0,
+   "mean_shap": 0.0
+  },
+  {
+   "name": "nlcd_water_100m",
+   "mean_abs_shap": 0.0,
+   "mean_shap": 0.0
+  },
+  {
+   "name": "fortype_spruce_fir_100m",
+   "mean_abs_shap": 0.0,
+   "mean_shap": 0.0
+  },
+  {
+   "name": "V5_mean",
+   "mean_abs_shap": 0.0,
+   "mean_shap": 0.0
+  },
+  {
+   "name": "fortype_maple_beech_birch_100m",
+   "mean_abs_shap": 0.0,
+   "mean_shap": 0.0
+  },
+  {
+   "name": "fortype_southern_pine_100m",
+   "mean_abs_shap": 0.0,
+   "mean_shap": 0.0
+  },
+  {
+   "name": "fortype_oak_pine_100m",
+   "mean_abs_shap": 0.0,
+   "mean_shap": 0.0
+  },
+  {
+   "name": "fortype_elm_ash_cottonwood_100m",
+   "mean_abs_shap": 0.0,
+   "mean_shap": 0.0
+  },
+  {
+   "name": "V6_mean",
+   "mean_abs_shap": 0.0,
+   "mean_shap": 0.0
+  },
+  {
+   "name": "FirstBelow025_mean",
+   "mean_abs_shap": 0.0,
+   "mean_shap": 0.0
+  },
+  {
+   "name": "V50_mean",
+   "mean_abs_shap": 0.0,
+   "mean_shap": 0.0
+  },
+  {
+   "name": "V18_mean",
+   "mean_abs_shap": 0.0,
+   "mean_shap": 0.0
+  },
+  {
+   "name": "FirstBelow2_mean",
+   "mean_abs_shap": 0.0,
+   "mean_shap": 0.0
+  },
+  {
+   "name": "FirstBelow5_mean",
+   "mean_abs_shap": 0.0,
+   "mean_shap": 0.0
+  },
+  {
+   "name": "IQR_mean",
+   "mean_abs_shap": 0.0,
+   "mean_shap": 0.0
+  },
+  {
+   "name": "MSP_mean",
+   "mean_abs_shap": 0.0,
+   "mean_shap": 0.0
+  },
+  {
+   "name": "Meanht_mean",
+   "mean_abs_shap": 0.0,
+   "mean_shap": 0.0
+  },
+  {
+   "name": "V025_mean",
+   "mean_abs_shap": 0.0,
+   "mean_shap": 0.0
+  },
+  {
+   "name": "V10_mean",
+   "mean_abs_shap": 0.0,
+   "mean_shap": 0.0
+  },
+  {
+   "name": "V14_mean",
+   "mean_abs_shap": 0.0,
+   "mean_shap": 0.0
+  },
+  {
+   "name": "V1_mean",
+   "mean_abs_shap": 0.0,
+   "mean_shap": 0.0
+  },
+  {
+   "name": "V4_mean",
+   "mean_abs_shap": 0.0,
+   "mean_shap": 0.0
+  },
+  {
+   "name": "V22_mean",
+   "mean_abs_shap": 0.0,
+   "mean_shap": 0.0
+  },
+  {
+   "name": "V26_mean",
+   "mean_abs_shap": 0.0,
+   "mean_shap": 0.0
+  },
+  {
+   "name": "V30_mean",
+   "mean_abs_shap": 0.0,
+   "mean_shap": 0.0
+  },
+  {
+   "name": "V34_mean",
+   "mean_abs_shap": 0.0,
+   "mean_shap": 0.0
+  },
+  {
+   "name": "V38_mean",
+   "mean_abs_shap": 0.0,
+   "mean_shap": 0.0
+  },
+  {
+   "name": "V3_mean",
+   "mean_abs_shap": 0.0,
+   "mean_shap": 0.0
+  },
+  {
+   "name": "V42_mean",
+   "mean_abs_shap": 0.0,
+   "mean_shap": 0.0
+  },
+  {
+   "name": "FirstBelow1_mean",
+   "mean_abs_shap": 0.0,
+   "mean_shap": 0.0
+  },
+  {
+   "name": "V46_mean",
+   "mean_abs_shap": 0.0,
+   "mean_shap": 0.0
+  }
+ ],
+ "model_importance": [
+  {
+   "name": "fortype_oak_hickory_100m",
+   "gain": 0.638863,
+   "cover": 0.559839,
+   "frequency": 0.56
+  },
+  {
+   "name": "fortype_nonforest_100m",
+   "gain": 0.19159,
+   "cover": 0.220379,
+   "frequency": 0.22
+  },
+  {
+   "name": "Maxht_mean",
+   "gain": 0.068065,
+   "cover": 0.079799,
+   "frequency": 0.08
+  },
+  {
+   "name": "nlcd_forest_100m",
+   "gain": 0.024299,
+   "cover": 0.040114,
+   "frequency": 0.04
+  },
+  {
+   "name": "TopRug_mean",
+   "gain": 0.022625,
+   "cover": 0.019925,
+   "frequency": 0.02
+  },
+  {
+   "name": "nlcd_open_field_100m",
+   "gain": 0.020934,
+   "cover": 0.019936,
+   "frequency": 0.02
+  },
+  {
+   "name": "Maxht_max",
+   "gain": 0.015994,
+   "cover": 0.0199,
+   "frequency": 0.02
+  },
+  {
+   "name": "MOCH_mean",
+   "gain": 0.010455,
+   "cover": 0.020134,
+   "frequency": 0.02
+  },
+  {
+   "name": "p95_mean",
+   "gain": 0.007175,
+   "cover": 0.019973,
+   "frequency": 0.02
+  }
+ ],
+ "cogs": {
+  "prediction": {
+   "file": "BBCU_prediction.tif",
+   "bands": [
+    "suitability"
+   ],
+   "dtype": "uint8",
+   "scales": [
+    0.004
+   ],
+   "offsets": [
+    0.0
+   ],
+   "nodata": 255.0
+  },
+  "shap": {
+   "file": "BBCU_shap.tif",
+   "bands": [
+    "fortype_oak_hickory_100m",
+    "fortype_nonforest_100m",
+    "Maxht_mean",
+    "nlcd_forest_100m",
+    "TopRug_mean",
+    "other_covariates"
+   ],
+   "dtype": "int16",
+   "scales": [
+    0.001,
+    0.001,
+    0.001,
+    0.001,
+    0.001,
+    0.001
+   ],
+   "offsets": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "nodata": -32768.0
+  }
+ }
+}

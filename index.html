@@ -14,7 +14,8 @@
 <header class="topbar">
   <h1>BBA habitat model explorer</h1>
   <nav class="tabs" role="tablist">
-    <button role="tab" data-tab="map" aria-selected="true">Map</button>
+    <button role="tab" data-tab="species" aria-selected="true">Priority species</button>
+    <button role="tab" data-tab="map" aria-selected="false">Map</button>
     <button role="tab" data-tab="summary" aria-selected="false">Area summary</button>
   </nav>
 </header>
@@ -43,7 +44,18 @@
   <main>
     <div id="error" class="error" hidden></div>
 
-    <section id="tab-map" class="tab" role="tabpanel">
+    <section id="tab-species" class="tab" role="tabpanel">
+      <div class="card">
+        <div class="card-header">AMJV priority species, Virginia Highlands</div>
+        <div class="card-body">
+          <p id="priority-intro" class="intro"></p>
+          <table id="priority-table" class="priority-table"></table>
+        </div>
+        <div class="card-footer" id="priority-notes"></div>
+      </div>
+    </section>
+
+    <section id="tab-map" class="tab" role="tabpanel" hidden>
       <div class="map-grid">
         <div class="card map-card">
           <div class="card-header controls">

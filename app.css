@@ -74,6 +74,22 @@ details > summary { cursor: pointer; color: var(--accent); font-size: .85rem; ma
 .cov-table tr.other-sum td { font-weight: 600; border-top: 1px solid #c9c8c3; }
 .cov-table tr.other td { color: var(--ink-muted); }
 
+/* Priority species table */
+#tab-species .card { max-width: 980px; }
+.intro { margin: 0 0 .8rem; line-height: 1.5; color: var(--ink-muted); }
+.priority-table { width: 100%; border-collapse: collapse; font-size: .88rem; }
+.priority-table th { position: sticky; top: 0; background: var(--surface); border-bottom: 1px solid #c9c8c3;
+  text-align: left; padding: 0; }
+.priority-table th.num { text-align: right; }
+.priority-table th button { border: 0; background: none; font: inherit; font-weight: 600; color: var(--ink);
+  padding: .45rem .5rem; cursor: pointer; width: 100%; text-align: inherit; }
+.priority-table td { padding: .32rem .5rem; border-bottom: 1px solid #f0efec; }
+.priority-table td.num { text-align: right; font-variant-numeric: tabular-nums; }
+.priority-table tbody tr:hover { background: #f6f6f4; }
+.priority-table tr.unmodeled td { color: var(--ink-muted); }
+.priority-table a { color: var(--accent); text-decoration: none; font-weight: 500; }
+.priority-table a:hover { text-decoration: underline; }
+
 .plot figure, .plot svg { max-width: 100%; }
 .maplibregl-popup-content { font-size: .8rem; }
 

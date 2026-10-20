@@ -338,6 +338,72 @@ $("dep-covariate").addEventListener("change", () => {
   $("dependence").replaceChildren(dependencePlot($("dep-covariate").value));
 });
 
+// ---- Priority species table ----------------------------------------------------------------
+const priorities = await getJSON("data/priorities.json");
+const onSite = new Set(site.species.map((s) => s.species));
+const REASON = { "fewer than 20 detections": "< 20 detections", "not in the BBA species list": "not in BBA data",
+                 "not in the training data": "no training data" };
+const COLUMNS = [
+  { key: "priority", label: "AMJV priority", value: (r) => priorities.levels.indexOf(r.priority) },
+  { key: "com_name", label: "Species", value: (r) => r.com_name },
+  { key: "code", label: "Code", value: (r) => r.code ?? "~" },
+  { key: "detections", label: "Detections", value: (r) => r.detections ?? -1, num: true },
+  { key: "cv_auc", label: "CV AUC", value: (r) => r.cv_auc ?? -1, num: true },
+];
+const sortState = { key: "priority", dir: 1 };   // the file's order: priority, then the best models first
+
+function renderPriorityTable() {
+  const col = COLUMNS.find((c) => c.key === sortState.key);
+  const order = new Map(priorities.species.map((r, i) => [r, i]));
+  const rows = [...priorities.species].sort((a, b) => {
+    const va = col.value(a), vb = col.value(b);
+    const c = typeof va === "string" ? va.localeCompare(vb) : va - vb;
+    return c * sortState.dir || order.get(a) - order.get(b);
+  });
+  const arrow = (c) => (c.key === sortState.key ? (sortState.dir > 0 ? " ▲" : " ▼") : "");
+  const head = COLUMNS.map((c) => `<th class="${c.num ? "num" : ""}" aria-sort="${c.key === sortState.key ?
+    (sortState.dir > 0 ? "ascending" : "descending") : "none"}"><button type="button" data-key="${c.key}">${c.label}${arrow(c)}</button></th>`);
+  const body = rows.map((r) => {
+    const name = onSite.has(r.code)
+      ? `<a href="#map" data-species="${r.code}" title="${r.sci_name}: open the map">${r.com_name}</a>`
+      : `<span title="${r.sci_name}">${r.com_name}</span>`;
+    const auc = r.cv_auc != null ? r.cv_auc.toFixed(2) : `<span class="muted">not modeled: ${REASON[r.note] ?? r.note}</span>`;
+    return `<tr class="${r.modeled ? "" : "unmodeled"}"><td>${r.priority}</td><td>${name}</td><td>${r.code ?? "–"}</td>` +
+      `<td class="num">${r.detections != null ? thousands(r.detections) : "–"}</td><td class="num">${auc}</td></tr>`;
+  });
+  $("priority-table").innerHTML = `<thead><tr>${head.join("")}</tr></thead><tbody>${body.join("")}</tbody>`;
+}
+
+function renderPriorityText() {
+  const s = priorities.species;
+  const count = (lv) => s.filter((r) => r.priority === lv).length;
+  const nMapped = s.filter((r) => onSite.has(r.code)).length;
+  $("priority-intro").innerHTML = `${s.length} species are ranked Medium, High or Very High priority by the AMJV for the
+    Virginia Highlands (${priorities.levels.map((lv) => `${count(lv)} ${lv}`).join(", ")}). ${nMapped} of them have BBA
+    habitat models and maps here: click a species name to open its map. Click a column heading to sort.`;
+  $("priority-notes").innerHTML = `Detections: survey points with the species detected, of ${thousands(priorities.training_points)}
+    in the models' training data (TALIN area, VA/WV). CV AUC: the model's pooled cross-validated ROC AUC (0.5 = no better
+    than chance, 1 = perfect). Species with fewer than ${priorities.min_presences} detections were not modeled. Source:
+    ${priorities.source}.`;
+}
+
+$("priority-table").addEventListener("click", (e) => {
+  const sortBy = e.target.closest("button[data-key]")?.dataset.key;
+  if (sortBy) {
+    const numeric = COLUMNS.find((c) => c.key === sortBy).num;
+    sortState.dir = sortState.key === sortBy ? -sortState.dir : (numeric ? -1 : 1);
+    sortState.key = sortBy;
+    renderPriorityTable();
+    return;
+  }
+  const sp = e.target.closest("a[data-species]")?.dataset.species;
+  if (sp) {
+    e.preventDefault();
+    selectTab("map");
+    mapLoaded.then(() => loadSpecies(sp)).catch(showError);
+  }
+});
+
 // ---- Species and tabs ------------------------------------------------------------------
 function renderSpeciesInfo() {
   const m = state.meta;
@@ -350,6 +416,7 @@ function renderSpeciesInfo() {
 
 async function loadSpecies(sp) {
   state.sp = sp;
+  $("species").value = sp;
   state.meta = await getJSON(`data/${sp}/meta.json`);
   state.cogs = null;
   state.sample = null;
@@ -360,12 +427,19 @@ async function loadSpecies(sp) {
   if (state.click) await updatePixel();
 }
 
+// The map starts in a hidden tab (zero size): fit it to the area the first time it is shown
+let mapFitted = false;
 function selectTab(name) {
   document.querySelectorAll(".tabs button").forEach((b) => b.setAttribute("aria-selected", String(b.dataset.tab === name)));
-  $("tab-map").hidden = name !== "map";
-  $("tab-summary").hidden = name !== "summary";
-  if (name === "map") map.resize();
-  else renderSummary().catch(showError);
+  for (const t of ["species", "map", "summary"]) $(`tab-${t}`).hidden = t !== name;
+  if (name === "map") {
+    map.resize();
+    if (!mapFitted) {
+      map.fitBounds(site.area.bounds, { padding: 16, animate: false });
+      mapFitted = true;
+    }
+  }
+  if (name === "summary") renderSummary().catch(showError);
 }
 
 document.querySelectorAll(".tabs button").forEach((b) => b.addEventListener("click", () => selectTab(b.dataset.tab)));
@@ -383,17 +457,19 @@ window.addEventListener("resize", () => {
 // ---- Start ---------------------------------------------------------------------------------
 try {
   document.querySelectorAll(".area-label").forEach((e) => { e.textContent = site.area.label; });
-  $("species").innerHTML = site.species.map((s) => `<option value="${s.species}">${s.species} · ${s.com_name}</option>`).join("");
+  $("species").innerHTML = site.species.map((s) => `<option value="${s.species}">${s.com_name} (${s.species})</option>`).join("");
+  renderPriorityText();
+  renderPriorityTable();
   await mapLoaded;
   map.addSource("area", { type: "geojson", data: href("data/area.geojson") });
   map.addLayer({ id: "area_outline", type: "line", source: "area", paint: { "line-color": "#3a3a38", "line-width": 1.2 } });
   map.addSource("pick", { type: "geojson", data: { type: "FeatureCollection", features: [] } });
   map.addLayer({ id: "pick", type: "circle", source: "pick",
                  paint: { "circle-radius": 8, "circle-opacity": 0, "circle-stroke-color": "#1b1b1a", "circle-stroke-width": 2.5 } });
-  await loadSpecies(site.species[0].species);
+  await loadSpecies(site.default_species ?? site.species[0].species);
 } catch (err) {
   showError(err);
 }
 
 // Hook for the verification scripts (verify/05_site.R)
-window.explorer = { state, map, readPixel, showLayer, selectTab, ready: true };
+window.explorer = { state, map, readPixel, showLayer, selectTab, loadSpecies, ready: true };

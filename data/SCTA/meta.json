@@ -1,0 +1,490 @@
+{
+ "species": "SCTA",
+ "com_name": "Scarlet Tanager",
+ "sci_name": "Piranga olivacea",
+ "cv_auc": 0.7463,
+ "prevalence": 0.1798,
+ "n_present": 1764,
+ "n_training_points": 9810,
+ "phi0": -1.529729962348938,
+ "units": "log-odds of presence",
+ "shap_method": "xgboost 3.4.1 pred_contribs (path-dependent TreeSHAP), margin scale",
+ "calibrated": false,
+ "shap_limit": 0.5299,
+ "shap_limit_quantile": 0.99,
+ "n_cells": 1755889,
+ "n_sample": 5000,
+ "shap_cog": {
+  "bands": [
+   "nlcd_forest_100m",
+   "fortype_oak_hickory_100m",
+   "fortype_nonforest_100m",
+   "p99_mean",
+   "p95_mean",
+   "other_covariates"
+  ],
+  "other_covariates": [
+   "FirstBelow025_mean",
+   "FirstBelow1_mean",
+   "FirstBelow2_mean",
+   "FirstBelow5_mean",
+   "IQR_mean",
+   "MOCH_mean",
+   "MSP_mean",
+   "Maxht_max",
+   "Maxht_mean",
+   "Meanht_mean",
+   "TopRug_mean",
+   "V025_mean",
+   "V10_mean",
+   "V14_mean",
+   "V18_mean",
+   "V1_mean",
+   "V22_mean",
+   "V26_mean",
+   "V30_mean",
+   "V34_mean",
+   "V38_mean",
+   "V3_mean",
+   "V42_mean",
+   "V46_mean",
+   "V4_mean",
+   "V50_mean",
+   "V5_mean",
+   "V6_mean",
+   "p25_mean",
+   "p50_mean",
+   "p5_mean",
+   "p75_mean",
+   "nlcd_developed_100m",
+   "nlcd_open_field_100m",
+   "nlcd_water_100m",
+   "nlcd_wetland_100m",
+   "fortype_maple_beech_birch_100m",
+   "fortype_southern_pine_100m",
+   "fortype_oak_pine_100m",
+   "fortype_elm_ash_cottonwood_100m",
+   "fortype_spruce_fir_100m",
+   "fortype_other_forest_100m"
+  ],
+  "int16_scale": 0.001
+ },
+ "layers": [
+  {
+   "layer": "prediction",
+   "file": "SCTA_prediction.pmtiles"
+  },
+  {
+   "layer": "shap_nlcd_forest_100m",
+   "file": "SCTA_shap_nlcd_forest_100m.pmtiles"
+  },
+  {
+   "layer": "shap_fortype_oak_hickory_100m",
+   "file": "SCTA_shap_fortype_oak_hickory_100m.pmtiles"
+  },
+  {
+   "layer": "shap_fortype_nonforest_100m",
+   "file": "SCTA_shap_fortype_nonforest_100m.pmtiles"
+  },
+  {
+   "layer": "shap_p99_mean",
+   "file": "SCTA_shap_p99_mean.pmtiles"
+  },
+  {
+   "layer": "shap_p95_mean",
+   "file": "SCTA_shap_p95_mean.pmtiles"
+  }
+ ],
+ "covariates": [
+  {
+   "name": "nlcd_forest_100m",
+   "mean_abs_shap": 0.478675,
+   "mean_shap": 0.183317
+  },
+  {
+   "name": "fortype_oak_hickory_100m",
+   "mean_abs_shap": 0.144402,
+   "mean_shap": 0.055175
+  },
+  {
+   "name": "fortype_nonforest_100m",
+   "mean_abs_shap": 0.120669,
+   "mean_shap": 0.037205
+  },
+  {
+   "name": "p99_mean",
+   "mean_abs_shap": 0.117389,
+   "mean_shap": 0.039567
+  },
+  {
+   "name": "p95_mean",
+   "mean_abs_shap": 0.083785,
+   "mean_shap": 0.030053
+  },
+  {
+   "name": "fortype_maple_beech_birch_100m",
+   "mean_abs_shap": 0.074969,
+   "mean_shap": 0.016538
+  },
+  {
+   "name": "nlcd_developed_100m",
+   "mean_abs_shap": 0.068271,
+   "mean_shap": 0.043572
+  },
+  {
+   "name": "V4_mean",
+   "mean_abs_shap": 0.053863,
+   "mean_shap": 0.011867
+  },
+  {
+   "name": "Maxht_mean",
+   "mean_abs_shap": 0.048216,
+   "mean_shap": 0.008107
+  },
+  {
+   "name": "V6_mean",
+   "mean_abs_shap": 0.045321,
+   "mean_shap": 0.010871
+  },
+  {
+   "name": "TopRug_mean",
+   "mean_abs_shap": 0.034308,
+   "mean_shap": 0.007297
+  },
+  {
+   "name": "p50_mean",
+   "mean_abs_shap": 0.029033,
+   "mean_shap": 0.007476
+  },
+  {
+   "name": "V10_mean",
+   "mean_abs_shap": 0.027528,
+   "mean_shap": 0.002735
+  },
+  {
+   "name": "V30_mean",
+   "mean_abs_shap": 0.016006,
+   "mean_shap": -0.000331
+  },
+  {
+   "name": "Meanht_mean",
+   "mean_abs_shap": 0.014424,
+   "mean_shap": -0.000421
+  },
+  {
+   "name": "fortype_elm_ash_cottonwood_100m",
+   "mean_abs_shap": 0.011006,
+   "mean_shap": 0.004122
+  },
+  {
+   "name": "Maxht_max",
+   "mean_abs_shap": 0.009228,
+   "mean_shap": -0.000735
+  },
+  {
+   "name": "V26_mean",
+   "mean_abs_shap": 0.008994,
+   "mean_shap": 0.004972
+  },
+  {
+   "name": "fortype_spruce_fir_100m",
+   "mean_abs_shap": 0.0,
+   "mean_shap": 0.0
+  },
+  {
+   "name": "p5_mean",
+   "mean_abs_shap": 0.0,
+   "mean_shap": 0.0
+  },
+  {
+   "name": "fortype_other_forest_100m",
+   "mean_abs_shap": 0.0,
+   "mean_shap": 0.0
+  },
+  {
+   "name": "p75_mean",
+   "mean_abs_shap": 0.0,
+   "mean_shap": 0.0
+  },
+  {
+   "name": "fortype_southern_pine_100m",
+   "mean_abs_shap": 0.0,
+   "mean_shap": 0.0
+  },
+  {
+   "name": "fortype_oak_pine_100m",
+   "mean_abs_shap": 0.0,
+   "mean_shap": 0.0
+  },
+  {
+   "name": "nlcd_open_field_100m",
+   "mean_abs_shap": 0.0,
+   "mean_shap": 0.0
+  },
+  {
+   "name": "nlcd_water_100m",
+   "mean_abs_shap": 0.0,
+   "mean_shap": 0.0
+  },
+  {
+   "name": "p25_mean",
+   "mean_abs_shap": 0.0,
+   "mean_shap": 0.0
+  },
+  {
+   "name": "nlcd_wetland_100m",
+   "mean_abs_shap": 0.0,
+   "mean_shap": 0.0
+  },
+  {
+   "name": "FirstBelow025_mean",
+   "mean_abs_shap": 0.0,
+   "mean_shap": 0.0
+  },
+  {
+   "name": "V5_mean",
+   "mean_abs_shap": 0.0,
+   "mean_shap": 0.0
+  },
+  {
+   "name": "V50_mean",
+   "mean_abs_shap": 0.0,
+   "mean_shap": 0.0
+  },
+  {
+   "name": "FirstBelow2_mean",
+   "mean_abs_shap": 0.0,
+   "mean_shap": 0.0
+  },
+  {
+   "name": "FirstBelow5_mean",
+   "mean_abs_shap": 0.0,
+   "mean_shap": 0.0
+  },
+  {
+   "name": "IQR_mean",
+   "mean_abs_shap": 0.0,
+   "mean_shap": 0.0
+  },
+  {
+   "name": "MOCH_mean",
+   "mean_abs_shap": 0.0,
+   "mean_shap": 0.0
+  },
+  {
+   "name": "MSP_mean",
+   "mean_abs_shap": 0.0,
+   "mean_shap": 0.0
+  },
+  {
+   "name": "V025_mean",
+   "mean_abs_shap": 0.0,
+   "mean_shap": 0.0
+  },
+  {
+   "name": "V14_mean",
+   "mean_abs_shap": 0.0,
+   "mean_shap": 0.0
+  },
+  {
+   "name": "V18_mean",
+   "mean_abs_shap": 0.0,
+   "mean_shap": 0.0
+  },
+  {
+   "name": "V1_mean",
+   "mean_abs_shap": 0.0,
+   "mean_shap": 0.0
+  },
+  {
+   "name": "V22_mean",
+   "mean_abs_shap": 0.0,
+   "mean_shap": 0.0
+  },
+  {
+   "name": "V34_mean",
+   "mean_abs_shap": 0.0,
+   "mean_shap": 0.0
+  },
+  {
+   "name": "V38_mean",
+   "mean_abs_shap": 0.0,
+   "mean_shap": 0.0
+  },
+  {
+   "name": "V3_mean",
+   "mean_abs_shap": 0.0,
+   "mean_shap": 0.0
+  },
+  {
+   "name": "V42_mean",
+   "mean_abs_shap": 0.0,
+   "mean_shap": 0.0
+  },
+  {
+   "name": "FirstBelow1_mean",
+   "mean_abs_shap": 0.0,
+   "mean_shap": 0.0
+  },
+  {
+   "name": "V46_mean",
+   "mean_abs_shap": 0.0,
+   "mean_shap": 0.0
+  }
+ ],
+ "model_importance": [
+  {
+   "name": "nlcd_forest_100m",
+   "gain": 0.450604,
+   "cover": 0.245016,
+   "frequency": 0.24
+  },
+  {
+   "name": "p99_mean",
+   "gain": 0.108406,
+   "cover": 0.042464,
+   "frequency": 0.04
+  },
+  {
+   "name": "p95_mean",
+   "gain": 0.094107,
+   "cover": 0.021604,
+   "frequency": 0.02
+  },
+  {
+   "name": "fortype_oak_hickory_100m",
+   "gain": 0.070421,
+   "cover": 0.118877,
+   "frequency": 0.12
+  },
+  {
+   "name": "fortype_nonforest_100m",
+   "gain": 0.070225,
+   "cover": 0.080435,
+   "frequency": 0.08
+  },
+  {
+   "name": "nlcd_developed_100m",
+   "gain": 0.041989,
+   "cover": 0.117422,
+   "frequency": 0.12
+  },
+  {
+   "name": "Maxht_mean",
+   "gain": 0.039584,
+   "cover": 0.021419,
+   "frequency": 0.02
+  },
+  {
+   "name": "fortype_maple_beech_birch_100m",
+   "gain": 0.038076,
+   "cover": 0.040932,
+   "frequency": 0.04
+  },
+  {
+   "name": "V4_mean",
+   "gain": 0.01747,
+   "cover": 0.059347,
+   "frequency": 0.06
+  },
+  {
+   "name": "TopRug_mean",
+   "gain": 0.015671,
+   "cover": 0.020722,
+   "frequency": 0.02
+  },
+  {
+   "name": "V6_mean",
+   "gain": 0.013859,
+   "cover": 0.057201,
+   "frequency": 0.06
+  },
+  {
+   "name": "V10_mean",
+   "gain": 0.011474,
+   "cover": 0.03894,
+   "frequency": 0.04
+  },
+  {
+   "name": "p50_mean",
+   "gain": 0.009964,
+   "cover": 0.039059,
+   "frequency": 0.04
+  },
+  {
+   "name": "fortype_elm_ash_cottonwood_100m",
+   "gain": 0.004979,
+   "cover": 0.019475,
+   "frequency": 0.02
+  },
+  {
+   "name": "V26_mean",
+   "gain": 0.004139,
+   "cover": 0.019396,
+   "frequency": 0.02
+  },
+  {
+   "name": "V30_mean",
+   "gain": 0.003416,
+   "cover": 0.019361,
+   "frequency": 0.02
+  },
+  {
+   "name": "Maxht_max",
+   "gain": 0.002836,
+   "cover": 0.019569,
+   "frequency": 0.02
+  },
+  {
+   "name": "Meanht_mean",
+   "gain": 0.002781,
+   "cover": 0.018759,
+   "frequency": 0.02
+  }
+ ],
+ "cogs": {
+  "prediction": {
+   "file": "SCTA_prediction.tif",
+   "bands": [
+    "suitability"
+   ],
+   "dtype": "uint8",
+   "scales": [
+    0.004
+   ],
+   "offsets": [
+    0.0
+   ],
+   "nodata": 255.0
+  },
+  "shap": {
+   "file": "SCTA_shap.tif",
+   "bands": [
+    "nlcd_forest_100m",
+    "fortype_oak_hickory_100m",
+    "fortype_nonforest_100m",
+    "p99_mean",
+    "p95_mean",
+    "other_covariates"
+   ],
+   "dtype": "int16",
+   "scales": [
+    0.001,
+    0.001,
+    0.001,
+    0.001,
+    0.001,
+    0.001
+   ],
+   "offsets": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "nodata": -32768.0
+  }
+ }
+}

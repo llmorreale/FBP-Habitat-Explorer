@@ -1,0 +1,520 @@
+{
+ "species": "YEWA",
+ "com_name": "Yellow Warbler",
+ "sci_name": "Setophaga petechia",
+ "cv_auc": 0.6504,
+ "prevalence": 0.0273,
+ "n_present": 268,
+ "n_training_points": 9810,
+ "phi0": -3.642002820968628,
+ "units": "log-odds of presence",
+ "shap_method": "xgboost 3.4.1 pred_contribs (path-dependent TreeSHAP), margin scale",
+ "calibrated": false,
+ "shap_limit": 0.3674,
+ "shap_limit_quantile": 0.99,
+ "n_cells": 1755889,
+ "n_sample": 5000,
+ "shap_cog": {
+  "bands": [
+   "fortype_maple_beech_birch_100m",
+   "MSP_mean",
+   "fortype_southern_pine_100m",
+   "fortype_other_forest_100m",
+   "fortype_elm_ash_cottonwood_100m",
+   "other_covariates"
+  ],
+  "other_covariates": [
+   "FirstBelow025_mean",
+   "FirstBelow1_mean",
+   "FirstBelow2_mean",
+   "FirstBelow5_mean",
+   "IQR_mean",
+   "MOCH_mean",
+   "Maxht_max",
+   "Maxht_mean",
+   "Meanht_mean",
+   "TopRug_mean",
+   "V025_mean",
+   "V10_mean",
+   "V14_mean",
+   "V18_mean",
+   "V1_mean",
+   "V22_mean",
+   "V26_mean",
+   "V30_mean",
+   "V34_mean",
+   "V38_mean",
+   "V3_mean",
+   "V42_mean",
+   "V46_mean",
+   "V4_mean",
+   "V50_mean",
+   "V5_mean",
+   "V6_mean",
+   "p25_mean",
+   "p50_mean",
+   "p5_mean",
+   "p75_mean",
+   "p95_mean",
+   "p99_mean",
+   "nlcd_forest_100m",
+   "nlcd_developed_100m",
+   "nlcd_open_field_100m",
+   "nlcd_water_100m",
+   "nlcd_wetland_100m",
+   "fortype_oak_hickory_100m",
+   "fortype_oak_pine_100m",
+   "fortype_spruce_fir_100m",
+   "fortype_nonforest_100m"
+  ],
+  "int16_scale": 0.001
+ },
+ "layers": [
+  {
+   "layer": "prediction",
+   "file": "YEWA_prediction.pmtiles"
+  },
+  {
+   "layer": "shap_fortype_maple_beech_birch_100m",
+   "file": "YEWA_shap_fortype_maple_beech_birch_100m.pmtiles"
+  },
+  {
+   "layer": "shap_MSP_mean",
+   "file": "YEWA_shap_MSP_mean.pmtiles"
+  },
+  {
+   "layer": "shap_fortype_southern_pine_100m",
+   "file": "YEWA_shap_fortype_southern_pine_100m.pmtiles"
+  },
+  {
+   "layer": "shap_fortype_other_forest_100m",
+   "file": "YEWA_shap_fortype_other_forest_100m.pmtiles"
+  },
+  {
+   "layer": "shap_fortype_elm_ash_cottonwood_100m",
+   "file": "YEWA_shap_fortype_elm_ash_cottonwood_100m.pmtiles"
+  }
+ ],
+ "covariates": [
+  {
+   "name": "fortype_maple_beech_birch_100m",
+   "mean_abs_shap": 0.271128,
+   "mean_shap": 0.084722
+  },
+  {
+   "name": "MSP_mean",
+   "mean_abs_shap": 0.227791,
+   "mean_shap": -0.157504
+  },
+  {
+   "name": "fortype_southern_pine_100m",
+   "mean_abs_shap": 0.132577,
+   "mean_shap": -0.020068
+  },
+  {
+   "name": "fortype_other_forest_100m",
+   "mean_abs_shap": 0.10401,
+   "mean_shap": 0.012723
+  },
+  {
+   "name": "fortype_elm_ash_cottonwood_100m",
+   "mean_abs_shap": 0.093632,
+   "mean_shap": -0.043552
+  },
+  {
+   "name": "fortype_nonforest_100m",
+   "mean_abs_shap": 0.092137,
+   "mean_shap": -0.066685
+  },
+  {
+   "name": "nlcd_open_field_100m",
+   "mean_abs_shap": 0.09058,
+   "mean_shap": -0.011282
+  },
+  {
+   "name": "V1_mean",
+   "mean_abs_shap": 0.072927,
+   "mean_shap": -0.023181
+  },
+  {
+   "name": "Meanht_mean",
+   "mean_abs_shap": 0.066099,
+   "mean_shap": -0.017794
+  },
+  {
+   "name": "fortype_oak_pine_100m",
+   "mean_abs_shap": 0.063313,
+   "mean_shap": -0.019476
+  },
+  {
+   "name": "fortype_oak_hickory_100m",
+   "mean_abs_shap": 0.061574,
+   "mean_shap": -0.045316
+  },
+  {
+   "name": "FirstBelow5_mean",
+   "mean_abs_shap": 0.060121,
+   "mean_shap": -0.031359
+  },
+  {
+   "name": "FirstBelow2_mean",
+   "mean_abs_shap": 0.060079,
+   "mean_shap": -0.030614
+  },
+  {
+   "name": "FirstBelow1_mean",
+   "mean_abs_shap": 0.058224,
+   "mean_shap": -0.035598
+  },
+  {
+   "name": "nlcd_forest_100m",
+   "mean_abs_shap": 0.046357,
+   "mean_shap": -0.028531
+  },
+  {
+   "name": "nlcd_water_100m",
+   "mean_abs_shap": 0.042445,
+   "mean_shap": -0.014255
+  },
+  {
+   "name": "V3_mean",
+   "mean_abs_shap": 0.034459,
+   "mean_shap": -8.3e-05
+  },
+  {
+   "name": "V14_mean",
+   "mean_abs_shap": 0.033916,
+   "mean_shap": -0.012365
+  },
+  {
+   "name": "V22_mean",
+   "mean_abs_shap": 0.031631,
+   "mean_shap": -0.019983
+  },
+  {
+   "name": "Maxht_mean",
+   "mean_abs_shap": 0.02801,
+   "mean_shap": -0.011663
+  },
+  {
+   "name": "p50_mean",
+   "mean_abs_shap": 0.026914,
+   "mean_shap": 0.013246
+  },
+  {
+   "name": "Maxht_max",
+   "mean_abs_shap": 0.01389,
+   "mean_shap": 0.005822
+  },
+  {
+   "name": "p25_mean",
+   "mean_abs_shap": 0.009514,
+   "mean_shap": 0.000186
+  },
+  {
+   "name": "nlcd_wetland_100m",
+   "mean_abs_shap": 0.0,
+   "mean_shap": 0.0
+  },
+  {
+   "name": "p5_mean",
+   "mean_abs_shap": 0.0,
+   "mean_shap": 0.0
+  },
+  {
+   "name": "nlcd_developed_100m",
+   "mean_abs_shap": 0.0,
+   "mean_shap": 0.0
+  },
+  {
+   "name": "fortype_spruce_fir_100m",
+   "mean_abs_shap": 0.0,
+   "mean_shap": 0.0
+  },
+  {
+   "name": "p99_mean",
+   "mean_abs_shap": 0.0,
+   "mean_shap": 0.0
+  },
+  {
+   "name": "p95_mean",
+   "mean_abs_shap": 0.0,
+   "mean_shap": 0.0
+  },
+  {
+   "name": "p75_mean",
+   "mean_abs_shap": 0.0,
+   "mean_shap": 0.0
+  },
+  {
+   "name": "FirstBelow025_mean",
+   "mean_abs_shap": 0.0,
+   "mean_shap": 0.0
+  },
+  {
+   "name": "V6_mean",
+   "mean_abs_shap": 0.0,
+   "mean_shap": 0.0
+  },
+  {
+   "name": "V5_mean",
+   "mean_abs_shap": 0.0,
+   "mean_shap": 0.0
+  },
+  {
+   "name": "V50_mean",
+   "mean_abs_shap": 0.0,
+   "mean_shap": 0.0
+  },
+  {
+   "name": "V4_mean",
+   "mean_abs_shap": 0.0,
+   "mean_shap": 0.0
+  },
+  {
+   "name": "V42_mean",
+   "mean_abs_shap": 0.0,
+   "mean_shap": 0.0
+  },
+  {
+   "name": "V38_mean",
+   "mean_abs_shap": 0.0,
+   "mean_shap": 0.0
+  },
+  {
+   "name": "V34_mean",
+   "mean_abs_shap": 0.0,
+   "mean_shap": 0.0
+  },
+  {
+   "name": "V30_mean",
+   "mean_abs_shap": 0.0,
+   "mean_shap": 0.0
+  },
+  {
+   "name": "V26_mean",
+   "mean_abs_shap": 0.0,
+   "mean_shap": 0.0
+  },
+  {
+   "name": "V18_mean",
+   "mean_abs_shap": 0.0,
+   "mean_shap": 0.0
+  },
+  {
+   "name": "V10_mean",
+   "mean_abs_shap": 0.0,
+   "mean_shap": 0.0
+  },
+  {
+   "name": "V025_mean",
+   "mean_abs_shap": 0.0,
+   "mean_shap": 0.0
+  },
+  {
+   "name": "TopRug_mean",
+   "mean_abs_shap": 0.0,
+   "mean_shap": 0.0
+  },
+  {
+   "name": "MOCH_mean",
+   "mean_abs_shap": 0.0,
+   "mean_shap": 0.0
+  },
+  {
+   "name": "IQR_mean",
+   "mean_abs_shap": 0.0,
+   "mean_shap": 0.0
+  },
+  {
+   "name": "V46_mean",
+   "mean_abs_shap": 0.0,
+   "mean_shap": 0.0
+  }
+ ],
+ "model_importance": [
+  {
+   "name": "fortype_maple_beech_birch_100m",
+   "gain": 0.150643,
+   "cover": 0.140202,
+   "frequency": 0.14
+  },
+  {
+   "name": "fortype_elm_ash_cottonwood_100m",
+   "gain": 0.112956,
+   "cover": 0.079877,
+   "frequency": 0.08
+  },
+  {
+   "name": "nlcd_water_100m",
+   "gain": 0.112926,
+   "cover": 0.080888,
+   "frequency": 0.08
+  },
+  {
+   "name": "MSP_mean",
+   "gain": 0.073679,
+   "cover": 0.099803,
+   "frequency": 0.1
+  },
+  {
+   "name": "fortype_other_forest_100m",
+   "gain": 0.072686,
+   "cover": 0.100536,
+   "frequency": 0.1
+  },
+  {
+   "name": "fortype_southern_pine_100m",
+   "gain": 0.061629,
+   "cover": 0.060027,
+   "frequency": 0.06
+  },
+  {
+   "name": "V1_mean",
+   "gain": 0.058239,
+   "cover": 0.020209,
+   "frequency": 0.02
+  },
+  {
+   "name": "Meanht_mean",
+   "gain": 0.056044,
+   "cover": 0.020427,
+   "frequency": 0.02
+  },
+  {
+   "name": "nlcd_open_field_100m",
+   "gain": 0.044426,
+   "cover": 0.06108,
+   "frequency": 0.06
+  },
+  {
+   "name": "FirstBelow2_mean",
+   "gain": 0.030794,
+   "cover": 0.020413,
+   "frequency": 0.02
+  },
+  {
+   "name": "FirstBelow5_mean",
+   "gain": 0.03051,
+   "cover": 0.020323,
+   "frequency": 0.02
+  },
+  {
+   "name": "fortype_oak_pine_100m",
+   "gain": 0.027552,
+   "cover": 0.039393,
+   "frequency": 0.04
+  },
+  {
+   "name": "fortype_nonforest_100m",
+   "gain": 0.023784,
+   "cover": 0.040118,
+   "frequency": 0.04
+  },
+  {
+   "name": "FirstBelow1_mean",
+   "gain": 0.023637,
+   "cover": 0.020269,
+   "frequency": 0.02
+  },
+  {
+   "name": "fortype_oak_hickory_100m",
+   "gain": 0.021537,
+   "cover": 0.039738,
+   "frequency": 0.04
+  },
+  {
+   "name": "Maxht_max",
+   "gain": 0.016832,
+   "cover": 0.019509,
+   "frequency": 0.02
+  },
+  {
+   "name": "nlcd_forest_100m",
+   "gain": 0.016071,
+   "cover": 0.020377,
+   "frequency": 0.02
+  },
+  {
+   "name": "V3_mean",
+   "gain": 0.013614,
+   "cover": 0.020607,
+   "frequency": 0.02
+  },
+  {
+   "name": "p25_mean",
+   "gain": 0.012908,
+   "cover": 0.02001,
+   "frequency": 0.02
+  },
+  {
+   "name": "V22_mean",
+   "gain": 0.010884,
+   "cover": 0.019381,
+   "frequency": 0.02
+  },
+  {
+   "name": "V14_mean",
+   "gain": 0.010291,
+   "cover": 0.019163,
+   "frequency": 0.02
+  },
+  {
+   "name": "p50_mean",
+   "gain": 0.009545,
+   "cover": 0.018891,
+   "frequency": 0.02
+  },
+  {
+   "name": "Maxht_mean",
+   "gain": 0.008814,
+   "cover": 0.01876,
+   "frequency": 0.02
+  }
+ ],
+ "cogs": {
+  "prediction": {
+   "file": "YEWA_prediction.tif",
+   "bands": [
+    "suitability"
+   ],
+   "dtype": "uint8",
+   "scales": [
+    0.004
+   ],
+   "offsets": [
+    0.0
+   ],
+   "nodata": 255.0
+  },
+  "shap": {
+   "file": "YEWA_shap.tif",
+   "bands": [
+    "fortype_maple_beech_birch_100m",
+    "MSP_mean",
+    "fortype_southern_pine_100m",
+    "fortype_other_forest_100m",
+    "fortype_elm_ash_cottonwood_100m",
+    "other_covariates"
+   ],
+   "dtype": "int16",
+   "scales": [
+    0.001,
+    0.001,
+    0.001,
+    0.001,
+    0.001,
+    0.001
+   ],
+   "offsets": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "nodata": -32768.0
+  }
+ }
+}
