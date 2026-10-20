@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BBA habitat model explorer</title>
+<meta name="description" content="XGBoost habitat suitability predictions and SHAP values for breeding birds, Rockbridge County, VA">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/maplibre-gl@5.24.0/dist/maplibre-gl.css">
+<link rel="stylesheet" href="app.css">
+<script src="https://cdn.jsdelivr.net/npm/maplibre-gl@5.24.0/dist/maplibre-gl.js"></script>
+<script type="module" src="app.js"></script>
+</head>
+<body>
+<header class="topbar">
+  <h1>BBA habitat model explorer</h1>
+  <nav class="tabs" role="tablist">
+    <button role="tab" data-tab="map" aria-selected="true">Map</button>
+    <button role="tab" data-tab="summary" aria-selected="false">Area summary</button>
+  </nav>
+</header>
+
+<div class="layout">
+  <aside class="sidebar">
+    <label for="species">Species</label>
+    <select id="species"></select>
+    <div id="species-info" class="species-info"></div>
+    <hr>
+    <div class="about">
+      <h2>Model and SHAP</h2>
+      <p>Tuned XGBoost presence/absence models from BBA_Models, trained on the TALIN VA/WV survey points
+        and predicted at 30 m over <span class="area-label">the prediction area</span>
+        (with Lexington and Buena Vista).</p>
+      <p>SHAP values are xgboost TreeSHAP (pred_contribs, path-dependent) on the log-odds scale: the base value
+        &phi;<sub>0</sub> plus the covariates' SHAP equals the model's log-odds f(x), and p = 1/(1 + e<sup>&minus;f(x)</sup>).
+        Probabilities are not post-hoc calibrated.</p>
+      <h2>Map colours</h2>
+      <p>Prediction: fixed 0&ndash;1. SHAP: centred on 0, blue raises and red lowers suitability; one symmetric limit
+        per species (the 99th percentile of |SHAP| over all its covariates), values beyond clipped. Zoomed-out tiles
+        average the values before colouring.</p>
+    </div>
+  </aside>
+
+  <main>
+    <div id="error" class="error" hidden></div>
+
+    <section id="tab-map" class="tab" role="tabpanel">
+      <div class="map-grid">
+        <div class="card map-card">
+          <div class="card-header controls">
+            <select id="layer" aria-label="Map layer"></select>
+            <div id="legend" class="legend-slot"></div>
+          </div>
+          <div id="map" class="map"></div>
+          <div class="card-footer" id="layers-note"></div>
+        </div>
+        <div class="card">
+          <div class="card-header">Clicked cell</div>
+          <div class="card-body" id="pixel">
+            <p class="muted">Click the map to see one cell's values and SHAP waterfall.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="tab-summary" class="tab" role="tabpanel" hidden>
+      <div class="summary-grid">
+        <div class="card">
+          <div class="card-header">Model importance (gain), top 15</div>
+          <div class="card-body plot" id="importance"></div>
+          <div class="card-footer" id="importance-note"></div>
+        </div>
+        <div class="card">
+          <div class="card-header">SHAP in the area (beeswarm), top 15</div>
+          <div class="card-body plot" id="beeswarm"></div>
+          <div class="card-footer" id="sample-note"></div>
+        </div>
+        <div class="card">
+          <div class="card-header controls">Dependence:
+            <select id="dep-covariate" aria-label="Covariate for the dependence plot"></select></div>
+          <div class="card-body plot" id="dependence"></div>
+          <div class="card-footer">Each dot is one sampled cell: its covariate value and that covariate's SHAP value.</div>
+        </div>
+      </div>
+    </section>
+  </main>
+</div>
+</body>
+</html>

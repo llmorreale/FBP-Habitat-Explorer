@@ -1,0 +1,301 @@
+{
+ "title": "BBA habitat model explorer",
+ "area": {
+  "label": "Rockbridge County, VA",
+  "bounds": [
+   [
+    -79.68877,
+    37.532797
+   ],
+   [
+    -79.143947,
+    38.086054
+   ]
+  ]
+ },
+ "grid": {
+  "proj4": "+proj=aea +lat_0=23 +lon_0=-96 +lat_1=29.5 +lat_2=45.5 +x_0=0 +y_0=0 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs=True",
+  "epsg": 6350,
+  "x0": 1416885.0,
+  "y0": 1796865.0,
+  "res": 30.0,
+  "width": 1481,
+  "height": 2044
+ },
+ "tiles": {
+  "min_zoom": 8,
+  "max_zoom": 12
+ },
+ "palettes": {
+  "prediction": [
+   "#cde2fb",
+   "#9ec5f4",
+   "#6da7ec",
+   "#3987e5",
+   "#256abf",
+   "#184f95",
+   "#0d366b"
+  ],
+  "shap": [
+   "#621b1a",
+   "#c74845",
+   "#f2b0ae",
+   "#f0efec",
+   "#9ec5f4",
+   "#2a78d6",
+   "#0d366b"
+  ],
+  "shap_quantile": 0.99
+ },
+ "species": [
+  {
+   "species": "OVEN",
+   "com_name": "Ovenbird",
+   "sci_name": "Seiurus aurocapilla",
+   "cv_auc": 0.8296,
+   "prevalence": 0.2077,
+   "n_present": 2038,
+   "n_training_points": 9810,
+   "phi0": -1.3443844318389893,
+   "shap_limit": 0.8143
+  }
+ ],
+ "covariates": {
+  "bands": [
+   "FirstBelow025_mean",
+   "FirstBelow1_mean",
+   "FirstBelow2_mean",
+   "FirstBelow5_mean",
+   "IQR_mean",
+   "MOCH_mean",
+   "MSP_mean",
+   "Maxht_max",
+   "Maxht_mean",
+   "Meanht_mean",
+   "TopRug_mean",
+   "V025_mean",
+   "V10_mean",
+   "V14_mean",
+   "V18_mean",
+   "V1_mean",
+   "V22_mean",
+   "V26_mean",
+   "V30_mean",
+   "V34_mean",
+   "V38_mean",
+   "V3_mean",
+   "V42_mean",
+   "V46_mean",
+   "V4_mean",
+   "V50_mean",
+   "V5_mean",
+   "V6_mean",
+   "p25_mean",
+   "p50_mean",
+   "p5_mean",
+   "p75_mean",
+   "p95_mean",
+   "p99_mean",
+   "nlcd_forest_100m",
+   "nlcd_developed_100m",
+   "nlcd_open_field_100m",
+   "nlcd_water_100m",
+   "nlcd_wetland_100m",
+   "fortype_oak_hickory_100m",
+   "fortype_maple_beech_birch_100m",
+   "fortype_southern_pine_100m",
+   "fortype_oak_pine_100m",
+   "fortype_elm_ash_cottonwood_100m",
+   "fortype_spruce_fir_100m",
+   "fortype_other_forest_100m",
+   "fortype_nonforest_100m"
+  ],
+  "files": [
+   {
+    "file": "covariates_float32_1.tif",
+    "bands": [
+     "FirstBelow025_mean",
+     "FirstBelow1_mean",
+     "FirstBelow2_mean",
+     "FirstBelow5_mean",
+     "IQR_mean",
+     "MOCH_mean",
+     "MSP_mean",
+     "Maxht_max",
+     "Maxht_mean",
+     "Meanht_mean",
+     "TopRug_mean",
+     "V025_mean"
+    ],
+    "dtype": "float32",
+    "scales": [
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0
+    ],
+    "offsets": [
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ],
+    "nodata": null
+   },
+   {
+    "file": "covariates_float32_2.tif",
+    "bands": [
+     "V10_mean",
+     "V14_mean",
+     "V18_mean",
+     "V1_mean",
+     "V22_mean",
+     "V26_mean",
+     "V30_mean",
+     "V34_mean",
+     "V38_mean",
+     "V3_mean",
+     "V42_mean"
+    ],
+    "dtype": "float32",
+    "scales": [
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0
+    ],
+    "offsets": [
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ],
+    "nodata": null
+   },
+   {
+    "file": "covariates_float32_3.tif",
+    "bands": [
+     "V46_mean",
+     "V4_mean",
+     "V50_mean",
+     "V5_mean",
+     "V6_mean",
+     "p25_mean",
+     "p50_mean",
+     "p5_mean",
+     "p75_mean",
+     "p95_mean",
+     "p99_mean"
+    ],
+    "dtype": "float32",
+    "scales": [
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0
+    ],
+    "offsets": [
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ],
+    "nodata": null
+   },
+   {
+    "file": "covariates_uint8_x0.004.tif",
+    "bands": [
+     "nlcd_forest_100m",
+     "nlcd_developed_100m",
+     "nlcd_open_field_100m",
+     "nlcd_water_100m",
+     "nlcd_wetland_100m",
+     "fortype_oak_hickory_100m",
+     "fortype_maple_beech_birch_100m",
+     "fortype_southern_pine_100m",
+     "fortype_oak_pine_100m",
+     "fortype_elm_ash_cottonwood_100m",
+     "fortype_spruce_fir_100m",
+     "fortype_other_forest_100m",
+     "fortype_nonforest_100m"
+    ],
+    "dtype": "uint8",
+    "scales": [
+     0.004,
+     0.004,
+     0.004,
+     0.004,
+     0.004,
+     0.004,
+     0.004,
+     0.004,
+     0.004,
+     0.004,
+     0.004,
+     0.004,
+     0.004
+    ],
+    "offsets": [
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ],
+    "nodata": 255.0
+   }
+  ]
+ }
+}
