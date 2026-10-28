@@ -2,60 +2,71 @@
  "species": "VEER",
  "com_name": "Veery",
  "sci_name": "Catharus fuscescens",
- "cv_auc": 0.8933,
+ "cv_auc": 0.9079,
  "prevalence": 0.0143,
  "n_present": 140,
  "n_training_points": 9810,
- "phi0": -4.240989685058594,
+ "phi0": -4.241710186004639,
  "units": "log-odds of presence",
  "shap_method": "xgboost 3.4.1 pred_contribs (path-dependent TreeSHAP), margin scale",
  "calibrated": false,
- "shap_limit": 0.3504,
+ "shap_limit": 0.3951,
  "shap_limit_quantile": 0.99,
  "n_cells": 1755889,
  "n_sample": 5000,
  "shap_cog": {
   "bands": [
    "fortype_maple_beech_birch_100m",
-   "nlcd_forest_100m",
    "nlcd_developed_100m",
-   "IQR_mean",
-   "MSP_mean",
+   "nlcd_forest_100m",
+   "struct_p95_w500m_sd",
+   "struct_vdr_w500m_mean",
    "other_covariates"
   ],
   "other_covariates": [
-   "FirstBelow025_mean",
-   "FirstBelow1_mean",
-   "FirstBelow2_mean",
-   "FirstBelow5_mean",
-   "MOCH_mean",
-   "Maxht_max",
-   "Maxht_mean",
-   "Meanht_mean",
-   "TopRug_mean",
-   "V025_mean",
-   "V10_mean",
-   "V14_mean",
-   "V18_mean",
-   "V1_mean",
-   "V22_mean",
-   "V26_mean",
-   "V30_mean",
-   "V34_mean",
-   "V38_mean",
-   "V3_mean",
-   "V42_mean",
-   "V46_mean",
-   "V4_mean",
-   "V50_mean",
-   "V5_mean",
-   "V6_mean",
-   "p25_mean",
-   "p50_mean",
-   "p5_mean",
-   "p75_mean",
-   "p95_mean",
-   "p99_mean",
+   "struct_p95",
+   "struct_gf",
+   "struct_pm",
+   "struct_pu",
+   "struct_vdr",
+   "struct_p95_patch_mean",
+   "struct_gf_patch_mean",
+   "struct_pm_patch_mean",
+   "struct_pu_patch_mean",
+   "struct_vdr_patch_mean",
+   "struct_p95_patch_sd",
+   "struct_gf_patch_sd",
+   "struct_pm_patch_sd",
+   "struct_pu_patch_sd",
+   "struct_vdr_patch_sd",
+   "struct_p95_w100m_mean",
+   "struct_gf_w100m_mean",
+   "struct_pm_w100m_mean",
+   "struct_pu_w100m_mean",
+   "struct_vdr_w100m_mean",
+   "struct_p95_w100m_sd",
+   "struct_gf_w100m_sd",
+   "struct_pm_w100m_sd",
+   "struct_pu_w100m_sd",
+   "struct_vdr_w100m_sd",
+   "struct_p95_w250m_mean",
+   "struct_gf_w250m_mean",
+   "struct_pm_w250m_mean",
+   "struct_pu_w250m_mean",
+   "struct_vdr_w250m_mean",
+   "struct_p95_w250m_sd",
+   "struct_gf_w250m_sd",
+   "struct_pm_w250m_sd",
+   "struct_pu_w250m_sd",
+   "struct_vdr_w250m_sd",
+   "struct_p95_w500m_mean",
+   "struct_gf_w500m_mean",
+   "struct_pm_w500m_mean",
+   "struct_pu_w500m_mean",
+   "struct_gf_w500m_sd",
+   "struct_pm_w500m_sd",
+   "struct_pu_w500m_sd",
+   "struct_vdr_w500m_sd",
    "nlcd_open_field_100m",
    "nlcd_water_100m",
    "nlcd_wetland_100m",
@@ -79,95 +90,120 @@
    "file": "VEER_shap_fortype_maple_beech_birch_100m.pmtiles"
   },
   {
-   "layer": "shap_nlcd_forest_100m",
-   "file": "VEER_shap_nlcd_forest_100m.pmtiles"
-  },
-  {
    "layer": "shap_nlcd_developed_100m",
    "file": "VEER_shap_nlcd_developed_100m.pmtiles"
   },
   {
-   "layer": "shap_IQR_mean",
-   "file": "VEER_shap_IQR_mean.pmtiles"
+   "layer": "shap_nlcd_forest_100m",
+   "file": "VEER_shap_nlcd_forest_100m.pmtiles"
   },
   {
-   "layer": "shap_MSP_mean",
-   "file": "VEER_shap_MSP_mean.pmtiles"
+   "layer": "shap_struct_p95_w500m_sd",
+   "file": "VEER_shap_struct_p95_w500m_sd.pmtiles"
+  },
+  {
+   "layer": "shap_struct_vdr_w500m_mean",
+   "file": "VEER_shap_struct_vdr_w500m_mean.pmtiles"
   }
  ],
  "covariates": [
   {
    "name": "fortype_maple_beech_birch_100m",
-   "mean_abs_shap": 0.318615,
-   "mean_shap": 0.001833
-  },
-  {
-   "name": "nlcd_forest_100m",
-   "mean_abs_shap": 0.261331,
-   "mean_shap": 0.143772
+   "mean_abs_shap": 0.397117,
+   "mean_shap": -0.026468
   },
   {
    "name": "nlcd_developed_100m",
-   "mean_abs_shap": 0.249537,
-   "mean_shap": 0.207385
+   "mean_abs_shap": 0.329277,
+   "mean_shap": 0.267731
   },
   {
-   "name": "IQR_mean",
-   "mean_abs_shap": 0.021897,
-   "mean_shap": 0.008332
+   "name": "nlcd_forest_100m",
+   "mean_abs_shap": 0.224757,
+   "mean_shap": 0.101385
   },
   {
-   "name": "MSP_mean",
-   "mean_abs_shap": 0.016776,
-   "mean_shap": 0.007217
+   "name": "struct_p95_w500m_sd",
+   "mean_abs_shap": 0.164247,
+   "mean_shap": -0.037869
   },
   {
-   "name": "fortype_nonforest_100m",
-   "mean_abs_shap": 0.005703,
-   "mean_shap": 0.004555
+   "name": "struct_vdr_w500m_mean",
+   "mean_abs_shap": 0.138416,
+   "mean_shap": -0.014373
   },
   {
-   "name": "MOCH_mean",
-   "mean_abs_shap": 0.003679,
-   "mean_shap": 0.001493
+   "name": "struct_p95_patch_sd",
+   "mean_abs_shap": 0.033917,
+   "mean_shap": -0.004821
   },
   {
-   "name": "V6_mean",
+   "name": "struct_p95_w250m_sd",
+   "mean_abs_shap": 0.026165,
+   "mean_shap": -0.004198
+  },
+  {
+   "name": "struct_p95_w500m_mean",
+   "mean_abs_shap": 0.020316,
+   "mean_shap": -0.005903
+  },
+  {
+   "name": "struct_p95_w250m_mean",
+   "mean_abs_shap": 0.005011,
+   "mean_shap": -0.0008
+  },
+  {
+   "name": "struct_vdr_w250m_mean",
+   "mean_abs_shap": 0.002128,
+   "mean_shap": -0.000298
+  },
+  {
+   "name": "struct_pm_w500m_mean",
    "mean_abs_shap": 0.0,
    "mean_shap": 0.0
   },
   {
-   "name": "p25_mean",
+   "name": "struct_pu_w500m_mean",
    "mean_abs_shap": 0.0,
    "mean_shap": 0.0
   },
   {
-   "name": "p50_mean",
+   "name": "struct_gf_w500m_sd",
    "mean_abs_shap": 0.0,
    "mean_shap": 0.0
   },
   {
-   "name": "p5_mean",
+   "name": "struct_vdr_w250m_sd",
    "mean_abs_shap": 0.0,
    "mean_shap": 0.0
   },
   {
-   "name": "p75_mean",
+   "name": "struct_pu_w250m_sd",
    "mean_abs_shap": 0.0,
    "mean_shap": 0.0
   },
   {
-   "name": "p95_mean",
+   "name": "struct_pm_w250m_sd",
    "mean_abs_shap": 0.0,
    "mean_shap": 0.0
   },
   {
-   "name": "p99_mean",
+   "name": "struct_gf_w500m_mean",
    "mean_abs_shap": 0.0,
    "mean_shap": 0.0
   },
   {
-   "name": "nlcd_wetland_100m",
+   "name": "struct_vdr_w500m_sd",
+   "mean_abs_shap": 0.0,
+   "mean_shap": 0.0
+  },
+  {
+   "name": "struct_pm_w500m_sd",
+   "mean_abs_shap": 0.0,
+   "mean_shap": 0.0
+  },
+  {
+   "name": "struct_pu_w500m_sd",
    "mean_abs_shap": 0.0,
    "mean_shap": 0.0
   },
@@ -182,7 +218,7 @@
    "mean_shap": 0.0
   },
   {
-   "name": "V50_mean",
+   "name": "nlcd_wetland_100m",
    "mean_abs_shap": 0.0,
    "mean_shap": 0.0
   },
@@ -217,117 +253,147 @@
    "mean_shap": 0.0
   },
   {
-   "name": "V5_mean",
+   "name": "struct_gf_w250m_sd",
    "mean_abs_shap": 0.0,
    "mean_shap": 0.0
   },
   {
-   "name": "FirstBelow025_mean",
+   "name": "struct_p95",
    "mean_abs_shap": 0.0,
    "mean_shap": 0.0
   },
   {
-   "name": "V4_mean",
+   "name": "struct_gf",
    "mean_abs_shap": 0.0,
    "mean_shap": 0.0
   },
   {
-   "name": "V14_mean",
+   "name": "struct_vdr_patch_sd",
    "mean_abs_shap": 0.0,
    "mean_shap": 0.0
   },
   {
-   "name": "FirstBelow2_mean",
+   "name": "struct_pm",
    "mean_abs_shap": 0.0,
    "mean_shap": 0.0
   },
   {
-   "name": "FirstBelow5_mean",
+   "name": "struct_pu",
    "mean_abs_shap": 0.0,
    "mean_shap": 0.0
   },
   {
-   "name": "Maxht_max",
+   "name": "struct_vdr",
    "mean_abs_shap": 0.0,
    "mean_shap": 0.0
   },
   {
-   "name": "Maxht_mean",
+   "name": "struct_p95_patch_mean",
    "mean_abs_shap": 0.0,
    "mean_shap": 0.0
   },
   {
-   "name": "Meanht_mean",
+   "name": "struct_gf_patch_mean",
    "mean_abs_shap": 0.0,
    "mean_shap": 0.0
   },
   {
-   "name": "TopRug_mean",
+   "name": "struct_pm_patch_mean",
    "mean_abs_shap": 0.0,
    "mean_shap": 0.0
   },
   {
-   "name": "V025_mean",
+   "name": "struct_pu_patch_mean",
    "mean_abs_shap": 0.0,
    "mean_shap": 0.0
   },
   {
-   "name": "V10_mean",
+   "name": "struct_vdr_patch_mean",
    "mean_abs_shap": 0.0,
    "mean_shap": 0.0
   },
   {
-   "name": "V18_mean",
+   "name": "struct_gf_patch_sd",
    "mean_abs_shap": 0.0,
    "mean_shap": 0.0
   },
   {
-   "name": "FirstBelow1_mean",
+   "name": "struct_pm_patch_sd",
    "mean_abs_shap": 0.0,
    "mean_shap": 0.0
   },
   {
-   "name": "V1_mean",
+   "name": "struct_pu_patch_sd",
    "mean_abs_shap": 0.0,
    "mean_shap": 0.0
   },
   {
-   "name": "V22_mean",
+   "name": "struct_p95_w100m_mean",
    "mean_abs_shap": 0.0,
    "mean_shap": 0.0
   },
   {
-   "name": "V26_mean",
+   "name": "struct_pu_w250m_mean",
    "mean_abs_shap": 0.0,
    "mean_shap": 0.0
   },
   {
-   "name": "V30_mean",
+   "name": "struct_gf_w100m_mean",
    "mean_abs_shap": 0.0,
    "mean_shap": 0.0
   },
   {
-   "name": "V34_mean",
+   "name": "struct_pm_w100m_mean",
    "mean_abs_shap": 0.0,
    "mean_shap": 0.0
   },
   {
-   "name": "V38_mean",
+   "name": "struct_pu_w100m_mean",
    "mean_abs_shap": 0.0,
    "mean_shap": 0.0
   },
   {
-   "name": "V3_mean",
+   "name": "struct_vdr_w100m_mean",
    "mean_abs_shap": 0.0,
    "mean_shap": 0.0
   },
   {
-   "name": "V42_mean",
+   "name": "struct_p95_w100m_sd",
    "mean_abs_shap": 0.0,
    "mean_shap": 0.0
   },
   {
-   "name": "V46_mean",
+   "name": "struct_gf_w100m_sd",
+   "mean_abs_shap": 0.0,
+   "mean_shap": 0.0
+  },
+  {
+   "name": "struct_pm_w100m_sd",
+   "mean_abs_shap": 0.0,
+   "mean_shap": 0.0
+  },
+  {
+   "name": "struct_pu_w100m_sd",
+   "mean_abs_shap": 0.0,
+   "mean_shap": 0.0
+  },
+  {
+   "name": "struct_vdr_w100m_sd",
+   "mean_abs_shap": 0.0,
+   "mean_shap": 0.0
+  },
+  {
+   "name": "struct_gf_w250m_mean",
+   "mean_abs_shap": 0.0,
+   "mean_shap": 0.0
+  },
+  {
+   "name": "struct_pm_w250m_mean",
+   "mean_abs_shap": 0.0,
+   "mean_shap": 0.0
+  },
+  {
+   "name": "fortype_nonforest_100m",
    "mean_abs_shap": 0.0,
    "mean_shap": 0.0
   }
@@ -335,45 +401,63 @@
  "model_importance": [
   {
    "name": "fortype_maple_beech_birch_100m",
-   "gain": 0.532989,
-   "cover": 0.450554,
-   "frequency": 0.45
-  },
-  {
-   "name": "nlcd_forest_100m",
-   "gain": 0.240391,
-   "cover": 0.289463,
-   "frequency": 0.29
+   "gain": 0.411537,
+   "cover": 0.323394,
+   "frequency": 0.3225
   },
   {
    "name": "nlcd_developed_100m",
-   "gain": 0.186576,
-   "cover": 0.194981,
-   "frequency": 0.195
+   "gain": 0.164553,
+   "cover": 0.145201,
+   "frequency": 0.145
   },
   {
-   "name": "IQR_mean",
-   "gain": 0.019656,
-   "cover": 0.029986,
+   "name": "struct_p95_w500m_sd",
+   "gain": 0.155061,
+   "cover": 0.150191,
+   "frequency": 0.15
+  },
+  {
+   "name": "nlcd_forest_100m",
+   "gain": 0.13008,
+   "cover": 0.152393,
+   "frequency": 0.1525
+  },
+  {
+   "name": "struct_vdr_w500m_mean",
+   "gain": 0.087422,
+   "cover": 0.134433,
+   "frequency": 0.135
+  },
+  {
+   "name": "struct_p95_w250m_sd",
+   "gain": 0.016149,
+   "cover": 0.022462,
+   "frequency": 0.0225
+  },
+  {
+   "name": "struct_p95_patch_sd",
+   "gain": 0.015407,
+   "cover": 0.032259,
+   "frequency": 0.0325
+  },
+  {
+   "name": "struct_p95_w500m_mean",
+   "gain": 0.015071,
+   "cover": 0.029789,
    "frequency": 0.03
   },
   {
-   "name": "MSP_mean",
-   "gain": 0.0141,
-   "cover": 0.025014,
-   "frequency": 0.025
+   "name": "struct_p95_w250m_mean",
+   "gain": 0.003921,
+   "cover": 0.007429,
+   "frequency": 0.0075
   },
   {
-   "name": "fortype_nonforest_100m",
-   "gain": 0.003325,
-   "cover": 0.005016,
-   "frequency": 0.005
-  },
-  {
-   "name": "MOCH_mean",
-   "gain": 0.002964,
-   "cover": 0.004985,
-   "frequency": 0.005
+   "name": "struct_vdr_w250m_mean",
+   "gain": 0.0008,
+   "cover": 0.002449,
+   "frequency": 0.0025
   }
  ],
  "cogs": {
@@ -395,10 +479,10 @@
    "file": "VEER_shap.tif",
    "bands": [
     "fortype_maple_beech_birch_100m",
-    "nlcd_forest_100m",
     "nlcd_developed_100m",
-    "IQR_mean",
-    "MSP_mean",
+    "nlcd_forest_100m",
+    "struct_p95_w500m_sd",
+    "struct_vdr_w500m_mean",
     "other_covariates"
    ],
    "dtype": "int16",

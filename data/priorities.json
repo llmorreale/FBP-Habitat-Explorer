@@ -10,13 +10,13 @@
   "species": [
     {
       "priority": "Very High",
-      "com_name": "Worm-eating Warbler",
-      "sci_name": "Helmitheros vermivorum",
+      "com_name": "Cerulean Warbler",
+      "sci_name": "Setophaga cerulea",
       "group": "landbird",
-      "code": "WEWA",
+      "code": "CERW",
       "modeled": true,
-      "detections": 359,
-      "cv_auc": 0.83,
+      "detections": 94,
+      "cv_auc": 0.87,
       "note": null
     },
     {
@@ -27,7 +27,18 @@
       "code": "BOBO",
       "modeled": true,
       "detections": 38,
-      "cv_auc": 0.81,
+      "cv_auc": 0.87,
+      "note": null
+    },
+    {
+      "priority": "Very High",
+      "com_name": "Worm-eating Warbler",
+      "sci_name": "Helmitheros vermivorum",
+      "group": "landbird",
+      "code": "WEWA",
+      "modeled": true,
+      "detections": 359,
+      "cv_auc": 0.84,
       "note": null
     },
     {
@@ -38,18 +49,7 @@
       "code": "PRAW",
       "modeled": true,
       "detections": 374,
-      "cv_auc": 0.8,
-      "note": null
-    },
-    {
-      "priority": "Very High",
-      "com_name": "Cerulean Warbler",
-      "sci_name": "Setophaga cerulea",
-      "group": "landbird",
-      "code": "CERW",
-      "modeled": true,
-      "detections": 94,
-      "cv_auc": 0.8,
+      "cv_auc": 0.83,
       "note": null
     },
     {
@@ -60,7 +60,7 @@
       "code": "BWWA",
       "modeled": true,
       "detections": 67,
-      "cv_auc": 0.78,
+      "cv_auc": 0.83,
       "note": null
     },
     {
@@ -71,7 +71,7 @@
       "code": "FISP",
       "modeled": true,
       "detections": 1826,
-      "cv_auc": 0.76,
+      "cv_auc": 0.78,
       "note": null
     },
     {
@@ -82,7 +82,18 @@
       "code": "KEWA",
       "modeled": true,
       "detections": 76,
-      "cv_auc": 0.74,
+      "cv_auc": 0.75,
+      "note": null
+    },
+    {
+      "priority": "Very High",
+      "com_name": "Wood Thrush",
+      "sci_name": "Hylocichla mustelina",
+      "group": "landbird",
+      "code": "WOTH",
+      "modeled": true,
+      "detections": 1983,
+      "cv_auc": 0.73,
       "note": null
     },
     {
@@ -98,24 +109,13 @@
     },
     {
       "priority": "Very High",
-      "com_name": "Wood Thrush",
-      "sci_name": "Hylocichla mustelina",
-      "group": "landbird",
-      "code": "WOTH",
-      "modeled": true,
-      "detections": 1983,
-      "cv_auc": 0.72,
-      "note": null
-    },
-    {
-      "priority": "Very High",
       "com_name": "Eastern Towhee",
       "sci_name": "Pipilo erythrophthalmus",
       "group": "landbird",
       "code": "EATO",
       "modeled": true,
       "detections": 2489,
-      "cv_auc": 0.66,
+      "cv_auc": 0.68,
       "note": null
     },
     {
@@ -126,7 +126,7 @@
       "code": "CAWA",
       "modeled": true,
       "detections": 24,
-      "cv_auc": 0.58,
+      "cv_auc": 0.55,
       "note": null
     },
     {
@@ -137,7 +137,7 @@
       "code": "BBCU",
       "modeled": true,
       "detections": 31,
-      "cv_auc": 0.42,
+      "cv_auc": 0.49,
       "note": null
     },
     {
@@ -214,7 +214,7 @@
       "code": "BTBW",
       "modeled": true,
       "detections": 133,
-      "cv_auc": 0.91,
+      "cv_auc": 0.93,
       "note": null
     },
     {
@@ -225,7 +225,7 @@
       "code": "BTNW",
       "modeled": true,
       "detections": 292,
-      "cv_auc": 0.89,
+      "cv_auc": 0.91,
       "note": null
     },
     {
@@ -236,7 +236,7 @@
       "code": "VEER",
       "modeled": true,
       "detections": 140,
-      "cv_auc": 0.89,
+      "cv_auc": 0.91,
       "note": null
     },
     {
@@ -247,7 +247,7 @@
       "code": "EAME",
       "modeled": true,
       "detections": 1215,
-      "cv_auc": 0.87,
+      "cv_auc": 0.9,
       "note": null
     },
     {
@@ -258,7 +258,7 @@
       "code": "GRSP",
       "modeled": true,
       "detections": 414,
-      "cv_auc": 0.85,
+      "cv_auc": 0.88,
       "note": null
     },
     {
@@ -269,18 +269,7 @@
       "code": "HOWA",
       "modeled": true,
       "detections": 635,
-      "cv_auc": 0.79,
-      "note": null
-    },
-    {
-      "priority": "High",
-      "com_name": "Louisiana Waterthrush",
-      "sci_name": "Parkesia motacilla",
-      "group": "landbird",
-      "code": "LOWA",
-      "modeled": true,
-      "detections": 293,
-      "cv_auc": 0.78,
+      "cv_auc": 0.83,
       "note": null
     },
     {
@@ -291,7 +280,18 @@
       "code": "YBCH",
       "modeled": true,
       "detections": 435,
-      "cv_auc": 0.76,
+      "cv_auc": 0.81,
+      "note": null
+    },
+    {
+      "priority": "High",
+      "com_name": "Louisiana Waterthrush",
+      "sci_name": "Parkesia motacilla",
+      "group": "landbird",
+      "code": "LOWA",
+      "modeled": true,
+      "detections": 293,
+      "cv_auc": 0.79,
       "note": null
     },
     {
@@ -307,24 +307,13 @@
     },
     {
       "priority": "High",
-      "com_name": "Least Flycatcher",
-      "sci_name": "Empidonax minimus",
-      "group": "landbird",
-      "code": "LEFL",
-      "modeled": true,
-      "detections": 51,
-      "cv_auc": 0.72,
-      "note": null
-    },
-    {
-      "priority": "High",
       "com_name": "Black-capped Chickadee",
       "sci_name": "Poecile atricapillus",
       "group": "landbird",
       "code": "BCCH",
       "modeled": true,
       "detections": 227,
-      "cv_auc": 0.71,
+      "cv_auc": 0.74,
       "note": null
     },
     {
@@ -335,18 +324,18 @@
       "code": "NOBO",
       "modeled": true,
       "detections": 119,
-      "cv_auc": 0.7,
+      "cv_auc": 0.74,
       "note": null
     },
     {
       "priority": "High",
-      "com_name": "Red-headed Woodpecker",
-      "sci_name": "Melanerpes erythrocephalus",
+      "com_name": "Least Flycatcher",
+      "sci_name": "Empidonax minimus",
       "group": "landbird",
-      "code": "RHWO",
+      "code": "LEFL",
       "modeled": true,
-      "detections": 69,
-      "cv_auc": 0.57,
+      "detections": 51,
+      "cv_auc": 0.68,
       "note": null
     },
     {
@@ -357,7 +346,18 @@
       "code": "SAVS",
       "modeled": true,
       "detections": 28,
-      "cv_auc": 0.55,
+      "cv_auc": 0.59,
+      "note": null
+    },
+    {
+      "priority": "High",
+      "com_name": "Red-headed Woodpecker",
+      "sci_name": "Melanerpes erythrocephalus",
+      "group": "landbird",
+      "code": "RHWO",
+      "modeled": true,
+      "detections": 69,
+      "cv_auc": 0.58,
       "note": null
     },
     {
@@ -368,7 +368,7 @@
       "code": "GRHE",
       "modeled": true,
       "detections": 37,
-      "cv_auc": 0.54,
+      "cv_auc": 0.55,
       "note": null
     },
     {
@@ -555,7 +555,7 @@
       "code": "BAWW",
       "modeled": true,
       "detections": 603,
-      "cv_auc": 0.79,
+      "cv_auc": 0.81,
       "note": null
     },
     {
@@ -566,7 +566,7 @@
       "code": "YEWA",
       "modeled": true,
       "detections": 268,
-      "cv_auc": 0.65,
+      "cv_auc": 0.71,
       "note": null
     },
     {
@@ -577,7 +577,7 @@
       "code": "BEKI",
       "modeled": true,
       "detections": 69,
-      "cv_auc": 0.52,
+      "cv_auc": 0.61,
       "note": null
     },
     {

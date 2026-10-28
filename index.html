@@ -31,6 +31,12 @@
       <p>Tuned XGBoost presence/absence models from BBA_Models, trained on the TALIN VA/WV survey points
         and predicted at 30 m over <span class="area-label">the prediction area</span>
         (with Lexington and Buena Vista).</p>
+      <p>Covariates: five LiDAR structure metrics (proxies from the 30 m LiDAR mosaics): canopy height P95, gap
+        fraction GF, midstory and understory shares P_m and P_u, and the vertical distribution ratio VDR, each per
+        cell, for the dominant forest patch within 100 m (mean, SD) and in 100, 250 and 500 m windows (mean, SD);
+        plus 13 land-cover shares within 100 m (NLCD groups, TreeMap forest types). Structure metrics are missing
+        where undefined (no forest within reach, no canopy for VDR); xgboost sends a missing value down a default
+        branch of each split, so it still has a SHAP value.</p>
       <p>SHAP values are xgboost TreeSHAP (pred_contribs, path-dependent) on the log-odds scale: the base value
         &phi;<sub>0</sub> plus the covariates' SHAP equals the model's log-odds f(x), and p = 1/(1 + e<sup>&minus;f(x)</sup>).
         Probabilities are not post-hoc calibrated.</p>
@@ -90,7 +96,7 @@
           <div class="card-header controls">Dependence:
             <select id="dep-covariate" aria-label="Covariate for the dependence plot"></select></div>
           <div class="card-body plot" id="dependence"></div>
-          <div class="card-footer">Each dot is one sampled cell: its covariate value and that covariate's SHAP value.</div>
+          <div class="card-footer" id="dependence-note">Each dot is one sampled cell: its covariate value and that covariate's SHAP value.</div>
         </div>
       </div>
     </section>

@@ -2,70 +2,81 @@
  "species": "BTBW",
  "com_name": "Black-throated Blue Warbler",
  "sci_name": "Setophaga caerulescens",
- "cv_auc": 0.9098,
+ "cv_auc": 0.9311,
  "prevalence": 0.0136,
  "n_present": 133,
  "n_training_points": 9810,
- "phi0": -4.451614856719971,
+ "phi0": -4.4485392570495605,
  "units": "log-odds of presence",
  "shap_method": "xgboost 3.4.1 pred_contribs (path-dependent TreeSHAP), margin scale",
  "calibrated": false,
- "shap_limit": 0.8912,
+ "shap_limit": 0.5422,
  "shap_limit_quantile": 0.99,
  "n_cells": 1755889,
  "n_sample": 5000,
  "shap_cog": {
   "bands": [
    "nlcd_forest_100m",
-   "nlcd_open_field_100m",
-   "fortype_nonforest_100m",
-   "fortype_oak_hickory_100m",
-   "p25_mean",
+   "struct_pu_w250m_sd",
+   "struct_vdr_patch_mean",
+   "struct_p95_patch_sd",
+   "struct_p95_w500m_sd",
    "other_covariates"
   ],
   "other_covariates": [
-   "FirstBelow025_mean",
-   "FirstBelow1_mean",
-   "FirstBelow2_mean",
-   "FirstBelow5_mean",
-   "IQR_mean",
-   "MOCH_mean",
-   "MSP_mean",
-   "Maxht_max",
-   "Maxht_mean",
-   "Meanht_mean",
-   "TopRug_mean",
-   "V025_mean",
-   "V10_mean",
-   "V14_mean",
-   "V18_mean",
-   "V1_mean",
-   "V22_mean",
-   "V26_mean",
-   "V30_mean",
-   "V34_mean",
-   "V38_mean",
-   "V3_mean",
-   "V42_mean",
-   "V46_mean",
-   "V4_mean",
-   "V50_mean",
-   "V5_mean",
-   "V6_mean",
-   "p50_mean",
-   "p5_mean",
-   "p75_mean",
-   "p95_mean",
-   "p99_mean",
+   "struct_p95",
+   "struct_gf",
+   "struct_pm",
+   "struct_pu",
+   "struct_vdr",
+   "struct_p95_patch_mean",
+   "struct_gf_patch_mean",
+   "struct_pm_patch_mean",
+   "struct_pu_patch_mean",
+   "struct_gf_patch_sd",
+   "struct_pm_patch_sd",
+   "struct_pu_patch_sd",
+   "struct_vdr_patch_sd",
+   "struct_p95_w100m_mean",
+   "struct_gf_w100m_mean",
+   "struct_pm_w100m_mean",
+   "struct_pu_w100m_mean",
+   "struct_vdr_w100m_mean",
+   "struct_p95_w100m_sd",
+   "struct_gf_w100m_sd",
+   "struct_pm_w100m_sd",
+   "struct_pu_w100m_sd",
+   "struct_vdr_w100m_sd",
+   "struct_p95_w250m_mean",
+   "struct_gf_w250m_mean",
+   "struct_pm_w250m_mean",
+   "struct_pu_w250m_mean",
+   "struct_vdr_w250m_mean",
+   "struct_p95_w250m_sd",
+   "struct_gf_w250m_sd",
+   "struct_pm_w250m_sd",
+   "struct_vdr_w250m_sd",
+   "struct_p95_w500m_mean",
+   "struct_gf_w500m_mean",
+   "struct_pm_w500m_mean",
+   "struct_pu_w500m_mean",
+   "struct_vdr_w500m_mean",
+   "struct_gf_w500m_sd",
+   "struct_pm_w500m_sd",
+   "struct_pu_w500m_sd",
+   "struct_vdr_w500m_sd",
    "nlcd_developed_100m",
+   "nlcd_open_field_100m",
    "nlcd_water_100m",
    "nlcd_wetland_100m",
+   "fortype_oak_hickory_100m",
    "fortype_maple_beech_birch_100m",
    "fortype_southern_pine_100m",
    "fortype_oak_pine_100m",
    "fortype_elm_ash_cottonwood_100m",
    "fortype_spruce_fir_100m",
-   "fortype_other_forest_100m"
+   "fortype_other_forest_100m",
+   "fortype_nonforest_100m"
   ],
   "int16_scale": 0.001
  },
@@ -79,150 +90,175 @@
    "file": "BTBW_shap_nlcd_forest_100m.pmtiles"
   },
   {
-   "layer": "shap_nlcd_open_field_100m",
-   "file": "BTBW_shap_nlcd_open_field_100m.pmtiles"
+   "layer": "shap_struct_pu_w250m_sd",
+   "file": "BTBW_shap_struct_pu_w250m_sd.pmtiles"
   },
   {
-   "layer": "shap_fortype_nonforest_100m",
-   "file": "BTBW_shap_fortype_nonforest_100m.pmtiles"
+   "layer": "shap_struct_vdr_patch_mean",
+   "file": "BTBW_shap_struct_vdr_patch_mean.pmtiles"
   },
   {
-   "layer": "shap_fortype_oak_hickory_100m",
-   "file": "BTBW_shap_fortype_oak_hickory_100m.pmtiles"
+   "layer": "shap_struct_p95_patch_sd",
+   "file": "BTBW_shap_struct_p95_patch_sd.pmtiles"
   },
   {
-   "layer": "shap_p25_mean",
-   "file": "BTBW_shap_p25_mean.pmtiles"
+   "layer": "shap_struct_p95_w500m_sd",
+   "file": "BTBW_shap_struct_p95_w500m_sd.pmtiles"
   }
  ],
  "covariates": [
   {
    "name": "nlcd_forest_100m",
-   "mean_abs_shap": 0.570529,
-   "mean_shap": 0.283569
+   "mean_abs_shap": 0.894425,
+   "mean_shap": 0.513469
   },
   {
-   "name": "nlcd_open_field_100m",
-   "mean_abs_shap": 0.428375,
-   "mean_shap": -0.180108
+   "name": "struct_pu_w250m_sd",
+   "mean_abs_shap": 0.258209,
+   "mean_shap": -0.165641
   },
   {
-   "name": "fortype_nonforest_100m",
-   "mean_abs_shap": 0.402335,
-   "mean_shap": 0.276965
+   "name": "struct_vdr_patch_mean",
+   "mean_abs_shap": 0.19712,
+   "mean_shap": -0.023215
   },
   {
-   "name": "fortype_oak_hickory_100m",
-   "mean_abs_shap": 0.334087,
-   "mean_shap": 0.187799
+   "name": "struct_p95_patch_sd",
+   "mean_abs_shap": 0.182711,
+   "mean_shap": -0.067887
   },
   {
-   "name": "p25_mean",
-   "mean_abs_shap": 0.215064,
-   "mean_shap": -0.130306
-  },
-  {
-   "name": "MSP_mean",
-   "mean_abs_shap": 0.203473,
-   "mean_shap": 0.005155
+   "name": "struct_p95_w500m_sd",
+   "mean_abs_shap": 0.18183,
+   "mean_shap": -0.093597
   },
   {
    "name": "fortype_maple_beech_birch_100m",
-   "mean_abs_shap": 0.186647,
-   "mean_shap": -0.047881
+   "mean_abs_shap": 0.176778,
+   "mean_shap": -0.031051
   },
   {
-   "name": "V3_mean",
-   "mean_abs_shap": 0.169653,
-   "mean_shap": -0.04118
+   "name": "struct_p95_w250m_sd",
+   "mean_abs_shap": 0.176031,
+   "mean_shap": -0.068396
+  },
+  {
+   "name": "struct_pu_w500m_mean",
+   "mean_abs_shap": 0.17415,
+   "mean_shap": -0.128867
+  },
+  {
+   "name": "struct_p95",
+   "mean_abs_shap": 0.171302,
+   "mean_shap": -0.04709
+  },
+  {
+   "name": "fortype_oak_hickory_100m",
+   "mean_abs_shap": 0.143001,
+   "mean_shap": 0.071649
+  },
+  {
+   "name": "struct_pu_w500m_sd",
+   "mean_abs_shap": 0.126498,
+   "mean_shap": -0.112098
   },
   {
    "name": "nlcd_developed_100m",
-   "mean_abs_shap": 0.1466,
-   "mean_shap": 0.112202
+   "mean_abs_shap": 0.114549,
+   "mean_shap": 0.083128
   },
   {
-   "name": "FirstBelow025_mean",
-   "mean_abs_shap": 0.129399,
-   "mean_shap": 0.032989
+   "name": "struct_gf_w250m_sd",
+   "mean_abs_shap": 0.106363,
+   "mean_shap": 0.002296
   },
   {
-   "name": "p99_mean",
-   "mean_abs_shap": 0.125499,
-   "mean_shap": 0.039535
+   "name": "struct_p95_w250m_mean",
+   "mean_abs_shap": 0.094667,
+   "mean_shap": -0.033946
   },
   {
-   "name": "fortype_southern_pine_100m",
-   "mean_abs_shap": 0.109221,
-   "mean_shap": -0.02487
+   "name": "struct_gf",
+   "mean_abs_shap": 0.085975,
+   "mean_shap": -0.001209
   },
   {
-   "name": "V025_mean",
-   "mean_abs_shap": 0.094788,
-   "mean_shap": -0.010947
+   "name": "struct_pu_patch_mean",
+   "mean_abs_shap": 0.083326,
+   "mean_shap": -0.063186
   },
   {
-   "name": "FirstBelow1_mean",
-   "mean_abs_shap": 0.081679,
-   "mean_shap": 0.004734
+   "name": "struct_gf_w500m_mean",
+   "mean_abs_shap": 0.079126,
+   "mean_shap": -0.040852
   },
   {
-   "name": "V26_mean",
-   "mean_abs_shap": 0.07005,
-   "mean_shap": -0.029275
+   "name": "struct_pu_w250m_mean",
+   "mean_abs_shap": 0.076007,
+   "mean_shap": -0.037276
   },
   {
-   "name": "Maxht_max",
-   "mean_abs_shap": 0.068145,
-   "mean_shap": -0.024206
+   "name": "struct_p95_w500m_mean",
+   "mean_abs_shap": 0.068234,
+   "mean_shap": -0.024009
+  },
+  {
+   "name": "struct_gf_w100m_mean",
+   "mean_abs_shap": 0.065764,
+   "mean_shap": -0.032853
+  },
+  {
+   "name": "struct_gf_patch_mean",
+   "mean_abs_shap": 0.063859,
+   "mean_shap": 0.02574
+  },
+  {
+   "name": "struct_p95_patch_mean",
+   "mean_abs_shap": 0.061559,
+   "mean_shap": -0.014149
+  },
+  {
+   "name": "struct_pu_w100m_mean",
+   "mean_abs_shap": 0.056258,
+   "mean_shap": -0.036053
+  },
+  {
+   "name": "struct_p95_w100m_mean",
+   "mean_abs_shap": 0.053867,
+   "mean_shap": -0.01657
+  },
+  {
+   "name": "struct_gf_w100m_sd",
+   "mean_abs_shap": 0.051608,
+   "mean_shap": -0.005711
+  },
+  {
+   "name": "struct_vdr_w250m_sd",
+   "mean_abs_shap": 0.043694,
+   "mean_shap": 0.00678
   },
   {
    "name": "fortype_oak_pine_100m",
-   "mean_abs_shap": 0.045624,
-   "mean_shap": -0.012553
+   "mean_abs_shap": 0.041985,
+   "mean_shap": -0.015339
   },
   {
-   "name": "V1_mean",
-   "mean_abs_shap": 0.044542,
-   "mean_shap": -0.019501
-  },
-  {
-   "name": "V14_mean",
-   "mean_abs_shap": 0.042362,
-   "mean_shap": 0.018065
-  },
-  {
-   "name": "V4_mean",
-   "mean_abs_shap": 0.032706,
-   "mean_shap": -0.011939
-  },
-  {
-   "name": "FirstBelow5_mean",
-   "mean_abs_shap": 0.029317,
-   "mean_shap": 0.006532
-  },
-  {
-   "name": "p50_mean",
-   "mean_abs_shap": 0.027541,
-   "mean_shap": 0.00753
-  },
-  {
-   "name": "p95_mean",
+   "name": "nlcd_open_field_100m",
    "mean_abs_shap": 0.0,
    "mean_shap": 0.0
   },
   {
-   "name": "nlcd_wetland_100m",
+   "name": "struct_gf_w500m_sd",
    "mean_abs_shap": 0.0,
    "mean_shap": 0.0
   },
   {
-   "name": "FirstBelow2_mean",
+   "name": "struct_pm_w500m_sd",
    "mean_abs_shap": 0.0,
    "mean_shap": 0.0
   },
   {
-   "name": "fortype_elm_ash_cottonwood_100m",
+   "name": "struct_vdr_w500m_sd",
    "mean_abs_shap": 0.0,
    "mean_shap": 0.0
   },
@@ -232,12 +268,17 @@
    "mean_shap": 0.0
   },
   {
-   "name": "IQR_mean",
+   "name": "nlcd_wetland_100m",
    "mean_abs_shap": 0.0,
    "mean_shap": 0.0
   },
   {
-   "name": "MOCH_mean",
+   "name": "fortype_southern_pine_100m",
+   "mean_abs_shap": 0.0,
+   "mean_shap": 0.0
+  },
+  {
+   "name": "fortype_elm_ash_cottonwood_100m",
    "mean_abs_shap": 0.0,
    "mean_shap": 0.0
   },
@@ -252,82 +293,107 @@
    "mean_shap": 0.0
   },
   {
-   "name": "TopRug_mean",
+   "name": "struct_vdr_w500m_mean",
    "mean_abs_shap": 0.0,
    "mean_shap": 0.0
   },
   {
-   "name": "Maxht_mean",
+   "name": "struct_vdr_w250m_mean",
    "mean_abs_shap": 0.0,
    "mean_shap": 0.0
   },
   {
-   "name": "p75_mean",
+   "name": "struct_pm_w500m_mean",
    "mean_abs_shap": 0.0,
    "mean_shap": 0.0
   },
   {
-   "name": "p5_mean",
+   "name": "struct_vdr_patch_sd",
    "mean_abs_shap": 0.0,
    "mean_shap": 0.0
   },
   {
-   "name": "V6_mean",
+   "name": "struct_pm",
    "mean_abs_shap": 0.0,
    "mean_shap": 0.0
   },
   {
-   "name": "V5_mean",
+   "name": "struct_pu",
    "mean_abs_shap": 0.0,
    "mean_shap": 0.0
   },
   {
-   "name": "V50_mean",
+   "name": "struct_vdr",
    "mean_abs_shap": 0.0,
    "mean_shap": 0.0
   },
   {
-   "name": "V42_mean",
+   "name": "struct_pm_patch_mean",
    "mean_abs_shap": 0.0,
    "mean_shap": 0.0
   },
   {
-   "name": "Meanht_mean",
+   "name": "struct_gf_patch_sd",
    "mean_abs_shap": 0.0,
    "mean_shap": 0.0
   },
   {
-   "name": "V38_mean",
+   "name": "struct_pm_patch_sd",
    "mean_abs_shap": 0.0,
    "mean_shap": 0.0
   },
   {
-   "name": "V34_mean",
+   "name": "struct_pu_patch_sd",
    "mean_abs_shap": 0.0,
    "mean_shap": 0.0
   },
   {
-   "name": "V30_mean",
+   "name": "struct_pm_w100m_mean",
    "mean_abs_shap": 0.0,
    "mean_shap": 0.0
   },
   {
-   "name": "V22_mean",
+   "name": "struct_pm_w250m_sd",
    "mean_abs_shap": 0.0,
    "mean_shap": 0.0
   },
   {
-   "name": "V18_mean",
+   "name": "struct_vdr_w100m_mean",
    "mean_abs_shap": 0.0,
    "mean_shap": 0.0
   },
   {
-   "name": "V10_mean",
+   "name": "struct_p95_w100m_sd",
    "mean_abs_shap": 0.0,
    "mean_shap": 0.0
   },
   {
-   "name": "V46_mean",
+   "name": "struct_pm_w100m_sd",
+   "mean_abs_shap": 0.0,
+   "mean_shap": 0.0
+  },
+  {
+   "name": "struct_pu_w100m_sd",
+   "mean_abs_shap": 0.0,
+   "mean_shap": 0.0
+  },
+  {
+   "name": "struct_vdr_w100m_sd",
+   "mean_abs_shap": 0.0,
+   "mean_shap": 0.0
+  },
+  {
+   "name": "struct_gf_w250m_mean",
+   "mean_abs_shap": 0.0,
+   "mean_shap": 0.0
+  },
+  {
+   "name": "struct_pm_w250m_mean",
+   "mean_abs_shap": 0.0,
+   "mean_shap": 0.0
+  },
+  {
+   "name": "fortype_nonforest_100m",
    "mean_abs_shap": 0.0,
    "mean_shap": 0.0
   }
@@ -335,134 +401,164 @@
  "model_importance": [
   {
    "name": "nlcd_forest_100m",
-   "gain": 0.238437,
-   "cover": 0.08121,
-   "frequency": 0.08
-  },
-  {
-   "name": "fortype_nonforest_100m",
-   "gain": 0.130186,
-   "cover": 0.042182,
-   "frequency": 0.04
-  },
-  {
-   "name": "fortype_oak_hickory_100m",
-   "gain": 0.07159,
-   "cover": 0.099205,
+   "gain": 0.29401,
+   "cover": 0.110908,
    "frequency": 0.1
   },
   {
-   "name": "V025_mean",
-   "gain": 0.071362,
-   "cover": 0.040407,
-   "frequency": 0.04
-  },
-  {
-   "name": "nlcd_open_field_100m",
-   "gain": 0.070594,
-   "cover": 0.121627,
-   "frequency": 0.12
-  },
-  {
-   "name": "p99_mean",
-   "gain": 0.065106,
-   "cover": 0.021729,
+   "name": "struct_pu_w250m_mean",
+   "gain": 0.109345,
+   "cover": 0.02248,
    "frequency": 0.02
   },
   {
-   "name": "V3_mean",
-   "gain": 0.053622,
-   "cover": 0.082677,
-   "frequency": 0.08
-  },
-  {
-   "name": "FirstBelow025_mean",
-   "gain": 0.049236,
-   "cover": 0.041264,
+   "name": "struct_pu_w500m_mean",
+   "gain": 0.06804,
+   "cover": 0.044645,
    "frequency": 0.04
   },
   {
-   "name": "fortype_maple_beech_birch_100m",
-   "gain": 0.048575,
-   "cover": 0.077881,
+   "name": "struct_pu_w250m_sd",
+   "gain": 0.050622,
+   "cover": 0.064144,
+   "frequency": 0.06
+  },
+  {
+   "name": "struct_pu_w100m_mean",
+   "gain": 0.043764,
+   "cover": 0.022374,
+   "frequency": 0.02
+  },
+  {
+   "name": "struct_pu_w500m_sd",
+   "gain": 0.040477,
+   "cover": 0.078497,
    "frequency": 0.08
   },
   {
-   "name": "MSP_mean",
-   "gain": 0.044851,
-   "cover": 0.061134,
+   "name": "fortype_maple_beech_birch_100m",
+   "gain": 0.03788,
+   "cover": 0.05802,
+   "frequency": 0.06
+  },
+  {
+   "name": "struct_gf_w250m_sd",
+   "gain": 0.036548,
+   "cover": 0.022256,
+   "frequency": 0.02
+  },
+  {
+   "name": "struct_p95_w250m_sd",
+   "gain": 0.033173,
+   "cover": 0.040488,
+   "frequency": 0.04
+  },
+  {
+   "name": "struct_vdr_patch_mean",
+   "gain": 0.032262,
+   "cover": 0.076031,
+   "frequency": 0.08
+  },
+  {
+   "name": "struct_p95_w500m_sd",
+   "gain": 0.031299,
+   "cover": 0.039022,
+   "frequency": 0.04
+  },
+  {
+   "name": "struct_p95",
+   "gain": 0.02768,
+   "cover": 0.058281,
    "frequency": 0.06
   },
   {
    "name": "nlcd_developed_100m",
-   "gain": 0.040149,
-   "cover": 0.021993,
+   "gain": 0.026584,
+   "cover": 0.021768,
    "frequency": 0.02
   },
   {
-   "name": "p25_mean",
-   "gain": 0.030622,
-   "cover": 0.077112,
-   "frequency": 0.08
+   "name": "struct_p95_patch_sd",
+   "gain": 0.023153,
+   "cover": 0.055699,
+   "frequency": 0.06
   },
   {
-   "name": "FirstBelow1_mean",
-   "gain": 0.021735,
-   "cover": 0.041602,
+   "name": "struct_p95_w500m_mean",
+   "gain": 0.021251,
+   "cover": 0.021158,
+   "frequency": 0.02
+  },
+  {
+   "name": "struct_p95_w250m_mean",
+   "gain": 0.020989,
+   "cover": 0.038981,
    "frequency": 0.04
   },
   {
-   "name": "fortype_southern_pine_100m",
-   "gain": 0.015074,
-   "cover": 0.03854,
+   "name": "fortype_oak_hickory_100m",
+   "gain": 0.018472,
+   "cover": 0.037894,
    "frequency": 0.04
   },
   {
-   "name": "V26_mean",
-   "gain": 0.010362,
-   "cover": 0.019767,
+   "name": "struct_gf",
+   "gain": 0.016358,
+   "cover": 0.020885,
    "frequency": 0.02
   },
   {
-   "name": "Maxht_max",
-   "gain": 0.009948,
-   "cover": 0.018964,
+   "name": "struct_pu_patch_mean",
+   "gain": 0.010633,
+   "cover": 0.018,
    "frequency": 0.02
   },
   {
-   "name": "V4_mean",
-   "gain": 0.007051,
-   "cover": 0.019146,
+   "name": "struct_p95_w100m_mean",
+   "gain": 0.010323,
+   "cover": 0.018239,
    "frequency": 0.02
   },
   {
-   "name": "FirstBelow5_mean",
-   "gain": 0.005039,
-   "cover": 0.019163,
+   "name": "struct_gf_w500m_mean",
+   "gain": 0.010229,
+   "cover": 0.019876,
+   "frequency": 0.02
+  },
+  {
+   "name": "struct_gf_patch_mean",
+   "gain": 0.00957,
+   "cover": 0.018224,
+   "frequency": 0.02
+  },
+  {
+   "name": "struct_p95_patch_mean",
+   "gain": 0.006711,
+   "cover": 0.017585,
+   "frequency": 0.02
+  },
+  {
+   "name": "struct_gf_w100m_mean",
+   "gain": 0.006508,
+   "cover": 0.017696,
+   "frequency": 0.02
+  },
+  {
+   "name": "struct_gf_w100m_sd",
+   "gain": 0.005726,
+   "cover": 0.019127,
    "frequency": 0.02
   },
   {
    "name": "fortype_oak_pine_100m",
-   "gain": 0.005008,
-   "cover": 0.017862,
+   "gain": 0.004345,
+   "cover": 0.019012,
    "frequency": 0.02
   },
   {
-   "name": "V14_mean",
-   "gain": 0.004021,
-   "cover": 0.019192,
-   "frequency": 0.02
-  },
-  {
-   "name": "V1_mean",
-   "gain": 0.004019,
-   "cover": 0.019266,
-   "frequency": 0.02
-  },
-  {
-   "name": "p50_mean",
-   "gain": 0.003414,
-   "cover": 0.018078,
+   "name": "struct_vdr_w250m_sd",
+   "gain": 0.004049,
+   "cover": 0.018709,
    "frequency": 0.02
   }
  ],
@@ -485,10 +581,10 @@
    "file": "BTBW_shap.tif",
    "bands": [
     "nlcd_forest_100m",
-    "nlcd_open_field_100m",
-    "fortype_nonforest_100m",
-    "fortype_oak_hickory_100m",
-    "p25_mean",
+    "struct_pu_w250m_sd",
+    "struct_vdr_patch_mean",
+    "struct_p95_patch_sd",
+    "struct_p95_w500m_sd",
     "other_covariates"
    ],
    "dtype": "int16",

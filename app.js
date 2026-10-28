@@ -17,6 +17,7 @@ const BASEMAP = "https://tiles.openfreemap.org/styles/positron";
 const COL_RAISE = "#2a78d6";     // the diverging palette's poles: blue raises, red lowers
 const COL_LOWER = "#c74845";
 const COL_MARK = "#5b5b57";      // single unsigned series (importance, dependence)
+const COL_MISSING = "#a3a29d";   // cells whose covariate value is missing (beeswarm)
 const RAMP_FEATURE = ["#ffbca3", "#fc6b31", "#bf4301", "#7a2a05"];   // covariate value, low -> high
 const OTHER_BAND = "other_covariates";
 const TOP_N = 15;
@@ -25,7 +26,8 @@ const $ = (id) => document.getElementById(id);
 const href = (path) => new URL(path, document.baseURI).href;
 const signed = (v, d = 3) => (v >= 0 ? "+" : "−") + Math.abs(v).toFixed(d);
 const num = (v, d = 3) => (v < 0 ? "−" : "") + Math.abs(v).toFixed(d);
-const sig = (v) => (Number.isFinite(v) ? Number(v.toPrecision(4)).toString() : "–");
+// covariate values: structure metrics can be missing (NaN in the COGs, null in the sample)
+const sig = (v) => (Number.isFinite(v) ? Number(v.toPrecision(4)).toString() : "missing");
 const thousands = (v) => v.toLocaleString("en-US");
 
 async function getJSON(path) {
@@ -268,7 +270,8 @@ function rng(seed) {
 }
 
 // Beeswarm: one row per covariate, x = SHAP, spread vertically by the local density
-// of SHAP values (sina style), colour = covariate value scaled within its range
+// of SHAP values (sina style), colour = covariate value scaled within its range,
+// grey where the value is missing (those cells have SHAP values too)
 function beeswarmPlot() {
   const s = state.sample;
   const covs = state.meta.covariates.filter((c) => c.mean_abs_shap > 0).slice(0, TOP_N).map((c) => c.name)
@@ -278,13 +281,14 @@ function beeswarmPlot() {
   covs.forEach((c, i) => {
     const v = s.shap[c];
     const xv = s.x[c];
-    const lo = Math.min(...v), hi = Math.max(...v), xlo = Math.min(...xv), xhi = Math.max(...xv);
+    const xf = xv.filter(Number.isFinite);
+    const lo = Math.min(...v), hi = Math.max(...v), xlo = Math.min(...xf), xhi = Math.max(...xf);
     const nb = 60, counts = new Array(nb).fill(0);
     const bin = (a) => (hi > lo ? Math.min(nb - 1, Math.floor(((a - lo) / (hi - lo)) * nb)) : 0);
     v.forEach((a) => counts[bin(a)]++);
     const peak = Math.max(...counts);
     v.forEach((a, k) => pts.push({ cov: c, shap: a, y: i + (rand() - 0.5) * 0.8 * (counts[bin(a)] / peak),
-                                    t: xhi > xlo ? (xv[k] - xlo) / (xhi - xlo) : 0.5 }));
+                                    t: !Number.isFinite(xv[k]) ? null : xhi > xlo ? (xv[k] - xlo) / (xhi - xlo) : 0.5 }));
   });
   const width = plotWidth("beeswarm");
   return Plot.plot({
@@ -296,14 +300,15 @@ function beeswarmPlot() {
              label: "Covariate value within its range", ticks: [0, 1], tickFormat: (t) => (t === 0 ? "low" : "high") },
     marks: [
       Plot.ruleX([0], { stroke: "#a3a29d" }),
-      Plot.dot(pts, { x: "shap", y: "y", fill: "t", r: 1.4, stroke: null }),
+      Plot.dot(pts.filter((d) => d.t == null), { x: "shap", y: "y", fill: COL_MISSING, r: 1.4, stroke: null }),
+      Plot.dot(pts.filter((d) => d.t != null), { x: "shap", y: "y", fill: "t", r: 1.4, stroke: null }),
     ],
   });
 }
 
 function dependencePlot(cov) {
   const s = state.sample;
-  const pts = s.x[cov].map((x, k) => ({ x, shap: s.shap[cov][k] }));
+  const pts = s.x[cov].map((x, k) => ({ x, shap: s.shap[cov][k] })).filter((d) => Number.isFinite(d.x));
   return Plot.plot({
     width: plotWidth("dependence"), height: 520, marginRight: 16, style: { fontSize: "11px" },
     x: { label: `${cov} (covariate value)`, grid: true, nice: true, ticks: 5, labelAnchor: "center", labelArrow: "none" },
@@ -324,19 +329,25 @@ async function renderSummary() {
     `improvement from all its splits, over the ${thousands(m.n_training_points)} training points (TALIN area, VA/WV), not ${site.area.label} alone.`;
   $("beeswarm").replaceChildren(beeswarmPlot());
   $("sample-note").textContent = `${thousands(m.n_sample)} random cells of ${site.area.label} (${thousands(m.n_cells)} cells); ` +
-    `SHAP on the log-odds scale; colour = covariate value within its range.`;
+    `SHAP on the log-odds scale; colour = covariate value within its range, grey = value missing.`;
   const sel = $("dep-covariate");
   const covs = state.sample.covariates;
   if (!covs.includes(sel.value)) {
     sel.innerHTML = covs.map((c) => `<option value="${c}">${c}</option>`).join("");
     sel.value = covs[0];
   }
-  $("dependence").replaceChildren(dependencePlot(sel.value));
+  renderDependence(sel.value);
 }
 
-$("dep-covariate").addEventListener("change", () => {
-  $("dependence").replaceChildren(dependencePlot($("dep-covariate").value));
-});
+function renderDependence(cov) {
+  $("dependence").replaceChildren(dependencePlot(cov));
+  const missing = state.sample.x[cov].filter((x) => !Number.isFinite(x)).length;
+  $("dependence-note").textContent = "Each dot is one sampled cell: its covariate value and that covariate's SHAP value." +
+    (missing ? ` ${thousands(missing)} of the ${thousands(state.sample.n)} cells have no ${cov} value (missing) and are ` +
+               `not shown; the model sends missing values down a default branch of each split.` : "");
+}
+
+$("dep-covariate").addEventListener("change", () => renderDependence($("dep-covariate").value));
 
 // ---- Priority species table ----------------------------------------------------------------
 const priorities = await getJSON("data/priorities.json");
@@ -414,10 +425,16 @@ function renderSpeciesInfo() {
     <div>SHAP colour limit &plusmn;${m.shap_limit.toFixed(2)} log-odds</div>`;
 }
 
+// Calls can overlap (a table link clicked while the start-up species loads): only the
+// latest one is applied, so state.sp and state.meta always belong to the same species
+let loadSeq = 0;
 async function loadSpecies(sp) {
-  state.sp = sp;
+  const seq = ++loadSeq;
   $("species").value = sp;
-  state.meta = await getJSON(`data/${sp}/meta.json`);
+  const meta = await getJSON(`data/${sp}/meta.json`);
+  if (seq !== loadSeq) return;
+  state.sp = sp;
+  state.meta = meta;
   state.cogs = null;
   state.sample = null;
   fillLayerMenu();
